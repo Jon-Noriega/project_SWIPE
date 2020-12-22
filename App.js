@@ -8,11 +8,9 @@
 
 <script src="http://localhost:8097"></script>
 import React from "react"
-import { View, Text } from 'react-native'
 import { Marketplace, Favorites } from './components'
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import styles from './App.styles'
 
 const App = () => {
@@ -23,12 +21,15 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="freeAGENT">
           <Stack.Screen name="freeAGENT" component={Marketplace} />
+          <Stack.Screen name="Favorites" component={Favorites} />
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
 
 export default App
+
+
 
 // const swiperRef = createRef()
 // const transitionRef = createRef()

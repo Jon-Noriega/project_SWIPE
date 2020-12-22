@@ -1,16 +1,14 @@
 <script src="http://localhost:8097"></script>
 import React, { createRef, useState } from 'react'
 import { View, Text } from 'react-native'
-import { Card, IconButton, Favorites } from '../index'
+import { Card, IconButton} from '../index'
 import { photoCards } from '../../constants'
 import styles from './Marketplace.styles'
 import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
-import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator, CreateStackNavigator } from "@react-navigation/stack"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { useLinkTo } from "@react-navigation/native"
 
-const Marketplace = ({navigation}) => {
+const Marketplace = () => {
 
     const swiperRef = createRef()
     const transitionRef = createRef()
@@ -49,63 +47,73 @@ const Marketplace = ({navigation}) => {
         </Transition.Sequence>
     )
     
-    const Tab = createBottomTabNavigator()
-
+    const linkTo = useLinkTo()
+    
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="Favorites" component={Favorites} />
-        
-            <View
-            style={styles.container}
-            >
-                <View style={styles.swiperContainer}>
-                    <Swiper
-                    containerStyle={styles.container}
-                    ref={swiperRef}
-                    cards={photoCards}
-                    cardIndex={index}
-                    renderCard={(card) => <Card card={card} />}
-                    onSwiped={onSwiped}
-                    onSwipedRight={onSwipedRight}
-                    onSwipedTop={onSwipedTop}
-                    // onSwipedLeft={onSwipedLeft}
-                    stackSize={4}
-                    stackScale={10}
-                    stackSeparation={14}
-                    disableBottomSwipe
-                    infinite
-                    showSecondCard
-                    backgroundColor="transparent"
-                    />
-                </View>
-
-                <View style={styles.bottomContainer}>
-                    <Transitioning.View ref={transitionRef} transition={transition}>
-                    <CardDetails index={index}/>
-                    </Transitioning.View>
-                </View>
-
-                <View style={styles.buttonsContainer}>
-                    <IconButton
-                    name="heart"
-                    onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
-                    color="white"
-                    backgroundColor="#3CA3FF"
-                    />
-                    <IconButton
-                    name="heart"
-                    onPress={() => navigation.navigate("Favorites") }
-                    color="white"
-                    backgroundColor="#4CCC93"
-                    />
-                </View>
+        <View
+        style={styles.container}
+        >
+            <View style={styles.swiperContainer}>
+                <Swiper
+                containerStyle={styles.container}
+                ref={swiperRef}
+                cards={photoCards}
+                cardIndex={index}
+                renderCard={(card) => <Card card={card} />}
+                onSwiped={onSwiped}
+                onSwipedRight={onSwipedRight}
+                onSwipedTop={onSwipedTop}
+                stackSize={4}
+                stackScale={10}
+                stackSeparation={14}
+                disableBottomSwipe
+                infinite
+                showSecondCard
+                backgroundColor="transparent"
+                />
             </View>
 
-        </Tab.Navigator>
+            <View style={styles.bottomContainer}>
+                <Transitioning.View ref={transitionRef} transition={transition}>
+                <CardDetails index={index}/>
+                </Transitioning.View>
+            </View>
+
+            <View style={styles.buttonsContainer}>
+                <IconButton
+                name="heart"
+                onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
+                color="white"
+                backgroundColor="#3CA3FF"
+                />
+                <IconButton
+                name="heart"
+                onPress={() => linkTo("/Favorites")}
+                color="white"
+                backgroundColor="#4CCC93"
+                />
+            </View>
+        </View>
     )
 }
 
 export default Marketplace
+
+
+
+// const Tab = createBottomTabNavigator()
+
+// onPress={() => navigation.navigate("Favorites") }
+
+{/* <Tab.Navigator>
+    <Tab.Screen
+    name="Favorites"
+    component={Favorites}
+    options={{
+        style: {height:100}
+    }}
+    />
+</Tab.Navigator> */}
 
 // const Favorites = () => {
 //     return (

@@ -1,9 +1,10 @@
 import React from 'react'
+import { View, Text } from "react-native"
 
 export default function Favorites() {
     return (
         <View>
-            <Text>Testing</Text>
+            <Text>Testing. Wowwwww Weeeeee!</Text>
         </View>
     )
 }
