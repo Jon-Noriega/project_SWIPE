@@ -8,6 +8,8 @@ import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
 import { useLinkTo } from "@react-navigation/native"
 
+const favoritesURL = "http://localhost:3000/favorites/"
+
 const Marketplace = () => {
 
     const swiperRef = createRef()
@@ -22,6 +24,20 @@ const Marketplace = () => {
     }
 
     const onSwipedRight = () => setFavorite([...favorites, photoCards[index]])
+    
+    // const onSwipedRight = () => {
+    //     setFavorite([...favorites, photoCards[index]])
+
+    //     fetch(favoritesURL, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(photoCards[index])
+    //     })
+    //         .then(response => response.json())
+    //         .then(user => setFavorite([...favorites, user]))
+    // }
 
     const onSwipedTop = () => {
         console.log("Top")
