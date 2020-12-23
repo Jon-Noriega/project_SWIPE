@@ -1,53 +1,49 @@
 <script src="http://localhost:8097"></script>
-import React, { createRef, useState } from 'react'
+import React, { useRef, createRef, useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
 import { Card, IconButton} from '../index'
-import { photoCards } from '../../constants'
+// import { photoCards } from '../../constants'
 import styles from './Marketplace.styles'
 import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
 import { useLinkTo } from "@react-navigation/native"
 
-const favoritesURL = "http://localhost:3000/favorites/"
+const usersURL = "http://localhost:3000/users/"
+// const favoritesURL = "http://localhost:3000/friendships/"
 
 const Marketplace = () => {
+
+    const [users, setUsers] = useState([])
+    const [index, setIndex] = useState(0)
+    const [favorites, setFavorite] = useState([])
+    
+    useEffect( () => {
+        fetch(usersURL)
+        .then(response => response.json())
+        .then(users => setUsers(users))
+    }, [])
+    
+    console.log(users, "TEST 1 - MARKETPLACE COMPONENT")
 
     const swiperRef = createRef()
     const transitionRef = createRef()
 
-    const [index, setIndex] = useState(0)
-    const [favorites, setFavorite] = useState([])
-    
     const onSwiped = () => {
         transitionRef.current.animateNextTransition()
-        setIndex((index + 1) % photoCards.length)
+        setIndex((index + 1) % users.length)
     }
 
-    const onSwipedRight = () => setFavorite([...favorites, photoCards[index]])
-    
-    // const onSwipedRight = () => {
-    //     setFavorite([...favorites, photoCards[index]])
-
-    //     fetch(favoritesURL, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(photoCards[index])
-    //     })
-    //         .then(response => response.json())
-    //         .then(user => setFavorite([...favorites, user]))
-    // }
+    const onSwipedRight = () => setFavorite([...favorites, users[index]])
 
     const onSwipedTop = () => {
         console.log("Top")
     }
 
     const CardDetails = ({index}) => (
-        <View style={styles.CardDetails} key={photoCards[index].id}>
-        <Text style={[styles.text, styles.name]}>{photoCards[index].name}</Text>
-        <Text style={[styles.text, styles.description]}>{photoCards[index].description}</Text>
-        <Text style={[styles.text, styles.project]}>Capstone: {photoCards[index].project}</Text>
+        <View style={styles.CardDetails} key={users[index].id}>
+            <Text style={[styles.text, styles.name]}>{users[index].name}</Text>
+            <Text style={[styles.text, styles.description]}>{users[index].description}</Text>
+            <Text style={[styles.text, styles.project]}>Capstone: {users[index].project}</Text>
         </View>
     )
     
@@ -55,11 +51,11 @@ const Marketplace = () => {
 
     const transition = (
         <Transition.Sequence>
-        <Transition.Out type="slide-bottom" durationMs={ANIMATION_DURATION} interpolation="easeIn"/>
-        <Transition.Together>
-            <Transition.In type="fade" durationMs={ANIMATION_DURATION} delayMs={ANIMATION_DURATION / 2}/>
-            <Transition.In type="slide-bottom" durationMs={ANIMATION_DURATION} delayMs={ANIMATION_DURATION / 2} interpolation="easeOut"/>
-        </Transition.Together>
+            <Transition.Out type="slide-bottom" durationMs={ANIMATION_DURATION} interpolation="easeIn"/>
+            <Transition.Together>
+                <Transition.In type="fade" durationMs={ANIMATION_DURATION} delayMs={ANIMATION_DURATION / 2}/>
+                <Transition.In type="slide-bottom" durationMs={ANIMATION_DURATION} delayMs={ANIMATION_DURATION / 2} interpolation="easeOut"/>
+            </Transition.Together>
         </Transition.Sequence>
     )
     
@@ -73,25 +69,31 @@ const Marketplace = () => {
                 <Swiper
                 containerStyle={styles.container}
                 ref={swiperRef}
-                cards={photoCards}
+                cards={users}
                 cardIndex={index}
-                renderCard={(card) => <Card card={card} />}
+                // renderCard={(card) => <Card card={card} />}
+                renderCard={() => <Card card={users[index]} />}
                 onSwiped={onSwiped}
                 onSwipedRight={onSwipedRight}
                 onSwipedTop={onSwipedTop}
-                stackSize={4}
-                stackScale={10}
-                stackSeparation={14}
+                stackSize={3}
+                // stackScale={10}
+                // stackSeparation={14}
                 disableBottomSwipe
-                infinite
                 showSecondCard
+                infinite
                 backgroundColor="transparent"
                 />
             </View>
 
             <View style={styles.bottomContainer}>
                 <Transitioning.View ref={transitionRef} transition={transition}>
-                <CardDetails index={index}/>
+                    {users.length > 0 
+                        ?
+                        <CardDetails index={index}/>
+                        :
+                        null
+                    }
                 </Transitioning.View>
             </View>
 
@@ -149,4 +151,4 @@ backgroundColor="#E5566D"
 {/* SWIPING RIGHT WILL HANDLE THE FAVORITING OF CANDIDATES */}
 
 // DO I NEED TO EMBED A LINK WITHIN THE ONPRESS & PASS IN PROPS? //
-// onPress={() => swiperRef.current.swipeRight(setFavorite([...favorites, photoCards[index]]))}
+// onPress={() => swiperRef.current.swipeRight(setFavorite([...favorites, users[index]]))}

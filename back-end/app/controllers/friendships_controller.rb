@@ -1,5 +1,11 @@
 class FriendshipsController < ApplicationController
 
+    def index
+        @friendships = Friendship.all
+
+        render json: @friendships, include: [:user, :friend]
+    end
+    
     def create
         Friendship.create(
             user_id: params[:user_id],
