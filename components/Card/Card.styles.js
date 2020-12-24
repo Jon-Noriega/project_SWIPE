@@ -5,7 +5,7 @@ const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
     card: {
-        height: height - 360,
+        height: height - 400,
         justifyContent: 'center',
         alignItems: "center",
         backgroundColor: colors.white,

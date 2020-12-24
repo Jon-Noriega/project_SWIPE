@@ -2,17 +2,18 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { func, string } from 'prop-types'
-import Icon from 'react-native-vector-icons/AntDesign'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+
 import styles from './IconButton.styles'
 
-const IconButton = ({ onPress, name, backgroundColor, color }) => (
+const IconButton = ({ onPress, icon, backgroundColor, color }) => (
     <TouchableOpacity
         style={[styles.singleButton, { backgroundColor }]}
         onPress={onPress}
         activeOpacity={0.5}
     >
-        <Icon
-        name={name}
+        <FontAwesomeIcon
+        icon={icon}
         size={40}
         color={color}
         />
@@ -21,7 +22,7 @@ const IconButton = ({ onPress, name, backgroundColor, color }) => (
 
 IconButton.propTypes = {
     onPress: func.isRequired,
-    name: string.isRequired,
+    icon: string,
     color: string,
     backgroundColor: string,
 }

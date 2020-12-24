@@ -8,7 +8,7 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
     },
     swiperContainer: {
-        height: height - 250,
+        height: height - 320,
     },
     bottomContainer: {
         flex: 0.95,

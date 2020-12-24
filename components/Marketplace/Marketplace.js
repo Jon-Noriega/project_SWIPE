@@ -1,15 +1,18 @@
 <script src="http://localhost:8097"></script>
-import React, { useRef, createRef, useState, useEffect } from 'react'
+import React, { createRef, useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
 import { Card, IconButton} from '../index'
-// import { photoCards } from '../../constants'
-import styles from './Marketplace.styles'
 import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
 import { useLinkTo } from "@react-navigation/native"
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import styles from './Marketplace.styles'
 
 const usersURL = "http://localhost:3000/users/"
-// const favoritesURL = "http://localhost:3000/friendships/"
+const favoritesURL = "http://localhost:3000/friendships/"
 
 const Marketplace = () => {
 
@@ -33,12 +36,26 @@ const Marketplace = () => {
         setIndex((index + 1) % users.length)
     }
 
-    const onSwipedRight = () => setFavorite([...favorites, users[index]])
+    const onSwipedRight = () => {
+        setFavorite([...favorites, users[index]])
 
-    const onSwipedTop = () => {
-        console.log("Top")
+        fetch(favoritesURL), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user_id: 3,
+                friend_id: 4,
+                // users[index]
+            })
+        }
     }
 
+    const onSwipedTop = () => {
+        linkTo("/Favorites")
+    }
+    
     const CardDetails = ({index}) => (
         <View style={styles.CardDetails} key={users[index].id}>
             <Text style={[styles.text, styles.name]}>{users[index].name}</Text>
@@ -48,7 +65,7 @@ const Marketplace = () => {
     )
     
     const ANIMATION_DURATION = 200
-
+    
     const transition = (
         <Transition.Sequence>
             <Transition.Out type="slide-bottom" durationMs={ANIMATION_DURATION} interpolation="easeIn"/>
@@ -67,23 +84,21 @@ const Marketplace = () => {
         >
             <View style={styles.swiperContainer}>
                 <Swiper
-                containerStyle={styles.container}
-                ref={swiperRef}
-                cards={users}
-                cardIndex={index}
-                // renderCard={(card) => <Card card={card} />}
-                renderCard={() => <Card card={users[index]} />}
-                onSwiped={onSwiped}
-                onSwipedRight={onSwipedRight}
-                onSwipedTop={onSwipedTop}
-                stackSize={3}
-                // stackScale={10}
-                // stackSeparation={14}
-                disableBottomSwipe
-                showSecondCard
-                infinite
-                backgroundColor="transparent"
-                />
+                    containerStyle={styles.container}
+                    ref={swiperRef}
+                    cards={users}
+                    cardIndex={index}
+                    // renderCard={(card) => <Card card={card} />}
+                    renderCard={() => <Card card={users[index]} />}
+                    onSwiped={onSwiped}
+                    onSwipedRight={onSwipedRight}
+                    onSwipedTop={onSwipedTop}
+                    stackSize={3}
+                    disableBottomSwipe
+                    showSecondCard
+                    infinite
+                    backgroundColor="transparent"
+                    />
             </View>
 
             <View style={styles.bottomContainer}>
@@ -99,25 +114,30 @@ const Marketplace = () => {
 
             <View style={styles.buttonsContainer}>
                 <IconButton
-                name="heart"
-                onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
-                color="white"
-                backgroundColor="#3CA3FF"
-                />
+                    icon={faTimes}
+                    onPress={() => swiperRef.current.swipeLeft()}
+                    color="white"
+                    backgroundColor="#cc0000"
+                    />
                 <IconButton
-                name="heart"
-                onPress={() => linkTo("/Favorites")}
-                color="white"
-                backgroundColor="#4CCC93"
-                />
+                    icon={faHeart}
+                    // onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
+                    onPress={() => linkTo("/Favorites")}
+                    color="white"
+                    backgroundColor="#ffbf00"
+                    />
+                <IconButton
+                    icon={faCheck}
+                    onPress={() => swiperRef.current.swipeLeft(onSwipedRight())}
+                    color="white"
+                    backgroundColor="#0040ff"
+                    />
             </View>
         </View>
     )
 }
 
 export default Marketplace
-
-
 
 // const Tab = createBottomTabNavigator()
 
@@ -134,21 +154,18 @@ export default Marketplace
 </Tab.Navigator> */}
 
 // const Favorites = () => {
-//     return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
-//         <Text>Favorites</Text>
-//     </View>
-//     )
-// }
-
-{/* <IconButton
-    name="close"
-    onPress={() => swiperRef.current.swipeLeft()}
-color="white"
-backgroundColor="#E5566D"
-/> */}
-{/* USE THE ICONBUTTONS TO NAVIGATE TO SWIFLY &/OR FAVORITES */}
-{/* SWIPING RIGHT WILL HANDLE THE FAVORITING OF CANDIDATES */}
-
-// DO I NEED TO EMBED A LINK WITHIN THE ONPRESS & PASS IN PROPS? //
-// onPress={() => swiperRef.current.swipeRight(setFavorite([...favorites, users[index]]))}
+    //     return (
+        //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
+        //         <Text>Favorites</Text>
+        //     </View>
+        //     )
+        // }
+        
+        
+        {/* USE THE ICONBUTTONS TO NAVIGATE TO SWIFLY &/OR FAVORITES */}
+        
+        // DO I NEED TO EMBED A LINK WITHIN THE ONPRESS & PASS IN PROPS? //
+        
+        // const onSwipedTop = () => {
+        //     console.log("Top")
+        // }
