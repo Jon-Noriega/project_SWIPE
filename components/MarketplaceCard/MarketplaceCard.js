@@ -2,9 +2,9 @@
 import React from 'react'
 import { View, Image } from 'react-native'
 import { shape, string } from 'prop-types'
-import styles from './Card.styles'
+import styles from './MarketplaceCard.styles'
 
-const Card = ({ card }) => {
+const MarketplaceCard = ({ card }) => {
 
     console.log(card, "TEST 2 - CARD COMPONENT")
 
@@ -25,15 +25,4 @@ const Card = ({ card }) => {
         </View>
 )}
 
-Card.propTypes = { 
-    card: shape({
-        // name: string,
-        photo: string,
-        // description: string,
-        // project: string,
-        // userType: string,
-        // username: string
-    })
-}
-
-export default Card
+export default MarketplaceCard

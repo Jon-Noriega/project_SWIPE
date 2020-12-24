@@ -1,10 +1,10 @@
-import Card from './Card/Card'
+import MarketplaceCard from './MarketplaceCard/MarketplaceCard'
 import IconButton from './IconButton/IconButton'
 import Marketplace from './Marketplace/Marketplace'
 import Favorites from './Favorites/Favorites'
 
 export {
-    Card,
+    MarketplaceCard,
     IconButton,
     Marketplace,
     Favorites

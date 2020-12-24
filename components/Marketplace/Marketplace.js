@@ -1,7 +1,7 @@
 <script src="http://localhost:8097"></script>
 import React, { createRef, useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
-import { Card, IconButton} from '../index'
+import { MarketplaceCard, IconButton} from '../index'
 import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
 import { useLinkTo } from "@react-navigation/native"
@@ -88,8 +88,8 @@ const Marketplace = () => {
                     ref={swiperRef}
                     cards={users}
                     cardIndex={index}
-                    // renderCard={(card) => <Card card={card} />}
-                    renderCard={() => <Card card={users[index]} />}
+                    // renderCard={(card) => <MarketplaceCard card={card} />}
+                    renderCard={() => <MarketplaceCard card={users[index]} />}
                     onSwiped={onSwiped}
                     onSwipedRight={onSwipedRight}
                     onSwipedTop={onSwipedTop}
@@ -138,34 +138,3 @@ const Marketplace = () => {
 }
 
 export default Marketplace
-
-// const Tab = createBottomTabNavigator()
-
-// onPress={() => navigation.navigate("Favorites") }
-
-{/* <Tab.Navigator>
-    <Tab.Screen
-    name="Favorites"
-    component={Favorites}
-    options={{
-        style: {height:100}
-    }}
-    />
-</Tab.Navigator> */}
-
-// const Favorites = () => {
-    //     return (
-        //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
-        //         <Text>Favorites</Text>
-        //     </View>
-        //     )
-        // }
-        
-        
-        {/* USE THE ICONBUTTONS TO NAVIGATE TO SWIFLY &/OR FAVORITES */}
-        
-        // DO I NEED TO EMBED A LINK WITHIN THE ONPRESS & PASS IN PROPS? //
-        
-        // const onSwipedTop = () => {
-        //     console.log("Top")
-        // }
