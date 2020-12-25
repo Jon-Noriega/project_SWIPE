@@ -7,6 +7,7 @@ one:
   project: MyString
   userType: MyString
   username: MyString
+  password_digest: MyString
 
 two:
   name: MyString
@@ -15,3 +16,4 @@ two:
   project: MyString
   userType: MyString
   username: MyString
+  password_digest: MyString

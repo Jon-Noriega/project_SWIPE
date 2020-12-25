@@ -8,7 +8,7 @@
 
 <script src="http://localhost:8097"></script>
 import React from "react"
-import { Marketplace, Favorites } from './components'
+import { SignUpForm, Marketplace, Favorites } from './components'
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import styles from './App.styles'
@@ -19,8 +19,9 @@ const App = () => {
   
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="freeAGENT">
-          <Stack.Screen name="freeAGENT" component={Marketplace} />
+      <Stack.Navigator initialRouteName="Marketplace">
+          <Stack.Screen name="Marketplace" component={Marketplace} />
+          <Stack.Screen name="Sign Up" component={SignUpForm} />
           <Stack.Screen name="Favorites" component={Favorites} />
       </Stack.Navigator>
     </NavigationContainer>

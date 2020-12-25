@@ -1,11 +1,13 @@
+import SignUpForm from './SignUpForm/SignUpForm'
+import Marketplace from './Marketplace/Marketplace'
 import MarketplaceCard from './MarketplaceCard/MarketplaceCard'
 import IconButton from './IconButton/IconButton'
-import Marketplace from './Marketplace/Marketplace'
 import Favorites from './Favorites/Favorites'
 
 export {
+    SignUpForm,
+    Marketplace,
     MarketplaceCard,
     IconButton,
-    Marketplace,
     Favorites
 }

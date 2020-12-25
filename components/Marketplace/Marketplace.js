@@ -45,9 +45,10 @@ const Marketplace = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                user_id: 3,
-                friend_id: 4,
-                // users[index]
+                // user_id: 3,
+                // friend_id: 4,
+                user_id: 1,
+                friend_id: users[index].id
             })
         }
     }
