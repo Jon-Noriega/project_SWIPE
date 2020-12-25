@@ -1,7 +1,6 @@
 <script src="http://localhost:8097"></script>
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import { func, string } from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 import styles from './IconButton.styles'

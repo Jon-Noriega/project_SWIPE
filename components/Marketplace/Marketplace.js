@@ -1,36 +1,25 @@
 <script src="http://localhost:8097"></script>
-import React, { createRef, useState, useEffect } from 'react'
+import React, { useState, createRef } from 'react'
 import { View, Text } from 'react-native'
-import { MarketplaceCard, IconButton} from '../index'
+import { MarketplaceCard, IconButton } from '../index'
 import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
-import { useLinkTo } from "@react-navigation/native"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import styles from './Marketplace.styles'
 
-const usersURL = "http://localhost:3000/users/"
 const favoritesURL = "http://localhost:3000/friendships/"
 
-const Marketplace = () => {
-
-    const [users, setUsers] = useState([])
+const Marketplace = ({ users }) => {
+    
     const [index, setIndex] = useState(0)
     const [favorites, setFavorite] = useState([])
-    
-    useEffect( () => {
-        fetch(usersURL)
-        .then(response => response.json())
-        .then(users => setUsers(users))
-    }, [])
-    
-    console.log(users, "TEST 1 - MARKETPLACE COMPONENT")
 
     const swiperRef = createRef()
     const transitionRef = createRef()
-
+    
     const onSwiped = () => {
         transitionRef.current.animateNextTransition()
         setIndex((index + 1) % users.length)
@@ -45,16 +34,10 @@ const Marketplace = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // user_id: 3,
-                // friend_id: 4,
                 user_id: 1,
                 friend_id: users[index].id
             })
         }
-    }
-
-    const onSwipedTop = () => {
-        linkTo("/Favorites")
     }
     
     const CardDetails = ({index}) => (
@@ -77,11 +60,9 @@ const Marketplace = () => {
         </Transition.Sequence>
     )
     
-    const linkTo = useLinkTo()
-    
     return (
         <View
-        style={styles.container}
+            style={styles.container}
         >
             <View style={styles.swiperContainer}>
                 <Swiper
@@ -89,11 +70,9 @@ const Marketplace = () => {
                     ref={swiperRef}
                     cards={users}
                     cardIndex={index}
-                    // renderCard={(card) => <MarketplaceCard card={card} />}
                     renderCard={() => <MarketplaceCard card={users[index]} />}
                     onSwiped={onSwiped}
                     onSwipedRight={onSwipedRight}
-                    onSwipedTop={onSwipedTop}
                     stackSize={3}
                     disableBottomSwipe
                     showSecondCard
@@ -120,16 +99,17 @@ const Marketplace = () => {
                     color="white"
                     backgroundColor="#cc0000"
                     />
-                <IconButton
+                {/* <IconButton
                     icon={faHeart}
-                    // onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
+                    onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
                     onPress={() => linkTo("/Favorites")}
+                    onPress={() => navigation.navigate("Favorites")}
                     color="white"
                     backgroundColor="#ffbf00"
-                    />
+                    /> */}
                 <IconButton
                     icon={faCheck}
-                    onPress={() => swiperRef.current.swipeLeft(onSwipedRight())}
+                    onPress={() => swiperRef.current.swipeRight(onSwipedRight())}
                     color="white"
                     backgroundColor="#0040ff"
                     />

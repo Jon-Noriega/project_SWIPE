@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
     def index
         @friendships = Friendship.all
 
-        render json: @friendships, include: [:user, :friend]
+        render json: @friendships, include: [:friend]
     end
     
     def create
