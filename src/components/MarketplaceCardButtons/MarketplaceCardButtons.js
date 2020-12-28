@@ -2,10 +2,9 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import styles from './MarketplaceCardButtons.styles'
 
-import styles from './IconButton.styles'
-
-const IconButton = ({ onPress, icon, backgroundColor, color }) => (
+const MarketplaceCardButtons = ({ icon, onPress, color, backgroundColor }) => (
     <TouchableOpacity
         style={[styles.singleButton, { backgroundColor }]}
         onPress={onPress}
@@ -19,4 +18,4 @@ const IconButton = ({ onPress, icon, backgroundColor, color }) => (
     </TouchableOpacity>
 )
 
-export default IconButton
+export default MarketplaceCardButtons
