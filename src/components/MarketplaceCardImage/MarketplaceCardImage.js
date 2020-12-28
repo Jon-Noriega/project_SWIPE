@@ -1,4 +1,5 @@
 <script src="http://localhost:8097"></script>
+
 import React from 'react'
 import { View, Image } from 'react-native'
 import styles from './MarketplaceCardImage.styles'

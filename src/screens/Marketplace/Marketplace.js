@@ -1,19 +1,19 @@
 <script src="http://localhost:8097"></script>
+
 import React, { useState, createRef } from 'react'
 import { View } from 'react-native'
 import { MarketplaceCardImage, MarketplaceCardDetails, MarketplaceCardButtons, MarketplaceOverlayLabels } from '../../components/index'
 import Swiper from 'react-native-deck-swiper'
-import { Transitioning } from "react-native-reanimated"
+import { Transitioning, Transition } from "react-native-reanimated"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import styles from './Marketplace.styles'
 
 const favoritesURL = "http://localhost:3000/friendships/"
 
-const Marketplace = ({ users, transition }) => {
+const Marketplace = ({ users, favorites, setFavorite }) => {
     
     const [index, setIndex] = useState(0)
-    const [favorites, setFavorite] = useState([])
 
     const swiperRef = createRef()
     const transitionRef = createRef()
@@ -38,6 +38,18 @@ const Marketplace = ({ users, transition }) => {
         })
     }
     
+    const ANIMATION_DURATION = 200
+    
+    const transition = (
+        <Transition.Sequence>
+            <Transition.Out type="slide-bottom" durationMs={ANIMATION_DURATION} interpolation="easeIn"/>
+            <Transition.Together>
+                <Transition.In type="fade" durationMs={ANIMATION_DURATION} delayMs={ANIMATION_DURATION / 2}/>
+                <Transition.In type="slide-bottom" durationMs={ANIMATION_DURATION} delayMs={ANIMATION_DURATION / 2} interpolation="easeOut"/>
+            </Transition.Together>
+        </Transition.Sequence>
+    )
+
     return (
         <View
             style={styles.marketplaceContainer}
