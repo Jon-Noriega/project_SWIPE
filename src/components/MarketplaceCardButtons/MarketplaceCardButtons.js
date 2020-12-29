@@ -13,7 +13,7 @@ const MarketplaceCardButtons = ({ icon, onPress, color, backgroundColor }) => (
     >
         <FontAwesomeIcon
         icon={icon}
-        size={40}
+        size={45}
         color={color}
         />
     </TouchableOpacity>

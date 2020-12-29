@@ -71,14 +71,14 @@ const Marketplace = ({ users, favorites, setFavorite }) => {
                     overlayLabels={{
                         left: {
                             title: 'PASS',
-                            element: <MarketplaceOverlayLabels label="PASS" color="#E5566D" />,
+                            element: <MarketplaceOverlayLabels label="PASS" color="#960505" />,
                             style: {
                                 wrapper: styles.overlayWrapper,
                             },
                         },
                         right: {
                             title: 'LIKE',
-                            element: <MarketplaceOverlayLabels label="FAVORITE" color="#4CCC93" />,
+                            element: <MarketplaceOverlayLabels label="FAVORITE" color="#040963" />,
                             style: {
                                 wrapper: {
                                     ...styles.overlayWrapper,
@@ -107,7 +107,7 @@ const Marketplace = ({ users, favorites, setFavorite }) => {
                     icon={faTimes}
                     onPress={() => swiperRef.current.swipeLeft()}
                     color="white"
-                    backgroundColor="#cf2917"
+                    backgroundColor="#960505"
                     />
                 {/* <MarketplaceCardButtons
                     icon={faHeart}
@@ -121,7 +121,7 @@ const Marketplace = ({ users, favorites, setFavorite }) => {
                     icon={faHeart}
                     onPress={() => swiperRef.current.swipeRight(onSwipedRight)}
                     color="white"
-                    backgroundColor="#d1aa11"
+                    backgroundColor="#040963"
                     />
             </View>
         </View>

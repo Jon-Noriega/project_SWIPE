@@ -1,9 +1,9 @@
 const colors = {
     white: '#fff',
     black: '#000',
-    nope: '#E5566D',
+    nope: "#960505",
     favorite: "#FFd500",
-    like: '#3CA3FF',
+    like: "#040963",
 }
 
 export default colors

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
             @token = JWT.encode({ user_id: @user.id }, "ocean")
             render json: {user: @user, token: @token}, status: :created
         else
-            render json: {error: @user.errors.full_messages}, status: :not_acceptable
+            render json: {errors: @user.errors.full_messages}, status: :not_acceptable
         end
     end
 

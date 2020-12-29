@@ -1,23 +1,32 @@
 <script src="http://localhost:8097"></script>
 
-import React from 'react'
-import { View, Text, Image } from 'react-native'
+import React, { useState } from 'react'
 import styles from './FavoriteCard.styles'
 
-import { Card, Title, Paragraph, Button } from "react-native-paper"
+import { Card, Headline, Title, Subheading, Paragraph, Caption, Button, Banner } from "react-native-paper"
 
 const FavoriteCard = ({ favorite }) => {
+    const [visible, setVisible] = useState(true)
 
     return (
     <Card>
         <Card.Content>
             <Card.Cover source={{ uri: favorite.photo }} />
-            <Title>{favorite.name}</Title>
+            <Headline>{favorite.name}</Headline>
             <Paragraph>{favorite.description}</Paragraph>
-            <Paragraph>Capstone: {favorite.project}</Paragraph>
+            <Subheading>Capstone: {favorite.project}</Subheading>
                 <Card.Actions>
-                    <Button>      Share Profile</Button>
-                    <Button>|   Direct Message</Button>
+                    <Button
+                        visible={visible}
+                        onPress={() => setVisible(false)}
+                    >      Share Profile
+                    </Button>
+                    <Button
+                        visible={visible}
+                        onPress={() => setVisible(false)}
+                    >
+                        |   Direct Message
+                    </Button>
                 </Card.Actions>
         </Card.Content>
     </Card>
