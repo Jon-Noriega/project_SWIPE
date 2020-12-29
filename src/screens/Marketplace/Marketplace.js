@@ -32,7 +32,7 @@ const Marketplace = ({ users, favorites, setFavorite }) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                user_id: users[6].id,
+                user_id: users[0].id,
                 friend_id: users[index].id
             })
         })

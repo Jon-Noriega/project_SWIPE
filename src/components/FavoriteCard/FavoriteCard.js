@@ -4,18 +4,23 @@ import React from 'react'
 import { View, Text, Image } from 'react-native'
 import styles from './FavoriteCard.styles'
 
+import { Card, Title, Paragraph, Button } from "react-native-paper"
+
 const FavoriteCard = ({ favorite }) => {
 
     return (
-        <View style={styles.card}>
-            <View
-                style={styles.cardDetails}
-            >
-                <Text style={[styles.text, styles.name]}>{favorite.name}</Text>
-                <Text style={[styles.text, styles.description]}>{favorite.description}</Text>
-            </View>
-            
-        </View>
+    <Card>
+        <Card.Content>
+            <Card.Cover source={{ uri: favorite.photo }} />
+            <Title>{favorite.name}</Title>
+            <Paragraph>{favorite.description}</Paragraph>
+            <Paragraph>Capstone: {favorite.project}</Paragraph>
+                <Card.Actions>
+                    <Button>      Share Profile</Button>
+                    <Button>|   Direct Message</Button>
+                </Card.Actions>
+        </Card.Content>
+    </Card>
     )
 }
 

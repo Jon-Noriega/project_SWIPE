@@ -5,7 +5,9 @@ import { SafeAreaView } from "react-native";
 import { Marketplace, Favorites } from './src/screens/index';
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import styles from './App.styles';
+
 
 const usersURL = "http://localhost:3000/users/"
 
@@ -23,7 +25,7 @@ const App = () => {
   }, [])
   
   useEffect( () => {
-      fetch(`${usersURL}11`)
+      fetch(`${usersURL}13`)
           .then(response => response.json())
           .then(user => setFavorite(user.friends))
 
@@ -34,8 +36,10 @@ const App = () => {
         <SafeAreaView>
         </SafeAreaView>
           <Tab.Navigator initialRouteName="Marketplace">
+
             <Tab.Screen
                 name="Marketplace"
+                icon={faHeart}
             >
                   {(props) => <Marketplace
                       {...props}
@@ -45,8 +49,10 @@ const App = () => {
                       />
                     }
               </Tab.Screen>
+
             <Tab.Screen
                 name="Favorites"
+                icon={faHeart}
             >
                   {(props) => <Favorites
                       {...props}
@@ -54,6 +60,7 @@ const App = () => {
                       />
                     }
               </Tab.Screen>
+              
           </Tab.Navigator>
       </NavigationContainer>
   )
