@@ -1,10 +1,10 @@
-<script src="http://localhost:8097"></script>;
+<script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
-import { View } from 'react-native'
-import { TextInput, HelperText, Button, Headline } from "react-native-paper"
+import { View, Text } from 'react-native'
+import { TextInput, HelperText, Button, Headline, Subheading } from "react-native-paper"
 
-const SignUpForm = ( { signUp, alerts }) => {
+const SignUpForm = ( { signUp, alerts, navigation }) => {
 
     const [name, setName] = useState("")
     const [photo, setPhoto] = useState("")
@@ -28,11 +28,14 @@ const SignUpForm = ( { signUp, alerts }) => {
         }
 
         signUp(user)
+            // .then( () => navigation.navigate("Home"))
+            .then( () => navigation.navigate('Home', { screen: 'Marketplace' }))
     }
 
     const showAlerts = () => alerts.map(alert => <HelperText type="error">{alert}</HelperText>)
 
     return (
+        <>
         <View>
             <Headline>Sign Up</Headline>
 
@@ -80,6 +83,20 @@ const SignUpForm = ( { signUp, alerts }) => {
 
                 {alerts ? showAlerts() : null }
         </View>
+
+        <View>
+            <Subheading>
+                Already a member?
+            </Subheading>
+
+            <Button
+                onPress={navigation.navigate("SignInForm")}
+            >
+                Log In
+            </Button>
+        </View>
+    </>
+
     )
 }
 

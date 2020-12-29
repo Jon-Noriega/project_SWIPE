@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, LogBox } from "react-native";
-import { Marketplace, Favorites, SignUpForm } from './src/screens/index';
+import { SignInForm, SignUpForm, Home } from './src/screens/index';
+import { PrivateRoute } from './src/components/index';
 import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { createStackNavigator } from '@react-navigation/stack';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './App.styles';
 
 const usersURL = "http://localhost:3000/users/"
@@ -13,7 +14,7 @@ const usersURL = "http://localhost:3000/users/"
 const App = () => {
   // LogBox.ignoreAllLogs()
 
-  const Tab = createMaterialTopTabNavigator()
+  const Stack = createStackNavigator()
   
   const [users, setUsers] = useState([])
   const [favorites, setFavorite] = useState([])
@@ -34,7 +35,7 @@ const App = () => {
   }, [])
   
   const signUp = (user) => {
-    fetch(usersURL, {
+    return fetch(usersURL, {
       method: "POST",
       headers: {
           "Content-Type": "application/json"
@@ -47,7 +48,7 @@ const App = () => {
           setAlerts(response.errors)
         }
         else {
-          localStorage.setItem("token", response.token)
+          // AsyncStorage.setItem("token", response.token)
           setUser(response.user),
           setAlerts(["User successsfully created!"])
         }
@@ -58,11 +59,32 @@ const App = () => {
       <NavigationContainer>
         <SafeAreaView>
         </SafeAreaView>
-          <Tab.Navigator initialRouteName="SignUpForm">
 
-          <Tab.Screen
+          <Stack.Navigator initialRouteName="SignInForm">
+
+            <Stack.Screen
+                // name="PrivateRoute"
+                name="FREEAGENT"
+            >
+                {/* {(props) => <PrivateRoute
+                    {...props}
+                    component={Home}
+                    users={users}
+                    favorites={favorites}
+                    setFavorite={setFavorite}
+                    />
+                  } */}
+                {(props) => <Home
+                    {...props}
+                    users={users}
+                    favorites={favorites}
+                    setFavorite={setFavorite}
+                    />
+                  }
+            </Stack.Screen>
+
+            <Stack.Screen
                 name="SignUpForm"
-                icon={faHeart}
             >
                 {(props) => <SignUpForm
                     {...props}
@@ -70,35 +92,44 @@ const App = () => {
                     alerts={alerts}
                     />
                   }
-              </Tab.Screen>
+            </Stack.Screen>
 
-            <Tab.Screen
-                name="Marketplace"
-                icon={faHeart}
+            <Stack.Screen
+                name="SignInForm"
             >
-                {(props) => <Marketplace
+                {(props) => <SignInForm
                     {...props}
-                    users={users}
-                    favorites={favorites}
-                    setFavorite={setFavorite}
+                    signUp={signUp}
+                    alerts={alerts}
                     />
                   }
-            </Tab.Screen>
+            </Stack.Screen>
 
-            <Tab.Screen
-                name="Favorites"
-                icon={faHeart}
-            >
-                {(props) => <Favorites
-                    {...props}
-                    favorites={favorites}
-                    />
-                  }
-            </Tab.Screen>
-              
-          </Tab.Navigator>
+          </Stack.Navigator>
       </NavigationContainer>
   )
 }
 
 export default App
+
+{/* <Tab.Screen
+    name="Marketplace"
+>
+    {(props) => <Marketplace
+        {...props}
+        users={users}
+        favorites={favorites}
+        setFavorite={setFavorite}
+        />
+      }
+</Tab.Screen>
+
+<Tab.Screen
+    name="Favorites"
+>
+    {(props) => <Favorites
+        {...props}
+        favorites={favorites}
+        />
+      }
+</Tab.Screen> */}

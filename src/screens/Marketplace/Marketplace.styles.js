@@ -9,7 +9,7 @@ export default StyleSheet.create({
         justifyContent: 'space-between'
     },
     swiperContainer: {
-        height: height - 310,
+        height: height - 370,
     },
     overlayWrapper: {
         flexDirection: 'column',
