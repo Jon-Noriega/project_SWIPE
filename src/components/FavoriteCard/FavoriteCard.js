@@ -19,13 +19,13 @@ const FavoriteCard = ({ favorite }) => {
                     <Button
                         visible={visible}
                         onPress={() => setVisible(false)}
-                    >      Share Profile
+                    >      Direct Message
                     </Button>
                     <Button
                         visible={visible}
                         onPress={() => setVisible(false)}
                     >
-                        |   Direct Message
+                        |   Share Profile
                     </Button>
                 </Card.Actions>
         </Card.Content>

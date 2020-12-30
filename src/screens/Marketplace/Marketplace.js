@@ -7,11 +7,12 @@ import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './Marketplace.styles'
 
 const favoritesURL = "http://localhost:3000/friendships/"
 
-const Marketplace = ({ users, favorites, setFavorite }) => {
+const Marketplace = ({ user, users, favorites, setFavorite }) => {
     
     const [index, setIndex] = useState(0)
 
@@ -26,16 +27,20 @@ const Marketplace = ({ users, favorites, setFavorite }) => {
     const onSwipedRight = () => {
         setFavorite([...favorites, users[index]])
 
-        fetch(favoritesURL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                user_id: users[0].id,
-                friend_id: users[index].id
+        AsyncStorage.getItem("token")
+            .then(token => {
+                fetch(favoritesURL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        user_id: user.id,
+                        friend_id: users[index].id
+                    })
+                })
             })
-        })
     }
     
     const ANIMATION_DURATION = 200
@@ -109,14 +114,6 @@ const Marketplace = ({ users, favorites, setFavorite }) => {
                     color="white"
                     backgroundColor="#960505"
                     />
-                {/* <MarketplaceCardButtons
-                    icon={faHeart}
-                    onPress={() => swiperRef.current.swipeTop(() => console.log("top"))}
-                    onPress={() => linkTo("/Favorites")}
-                    onPress={() => navigation.navigate("Favorites")}
-                    color="white"
-                    backgroundColor="#ffbf00"
-                    /> */}
                 <MarketplaceCardButtons
                     icon={faHeart}
                     onPress={() => swiperRef.current.swipeRight(onSwipedRight)}
