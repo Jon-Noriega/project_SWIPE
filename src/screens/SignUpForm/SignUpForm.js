@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Modal, Portal, TextInput, HelperText, Button, Headline, Provider } from "react-native-paper"
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
     
@@ -35,14 +36,21 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
-    const containerStyle = {backgroundColor: 'white', padding: 20};
+
+    const theme = {
+        ...DefaultTheme,
+        colors: {
+        ...DefaultTheme.colors,
+        primary: '#0048e8',
+        accent: '#e0b402',
+        },
+    };
+    const containerStyle = {backgroundColor: 'white', padding: 20, margin: 20, borderRadius: 8 };
     
     return (
-            <Provider>
+            <Provider theme={theme} >
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-                            <Headline>Sign Up</Headline>
-
                                 <TextInput
                                     label="Name"
                                     value={name}
@@ -75,6 +83,7 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                     />
                                 <TextInput
                                     label="Password"
+                                    secureTextEntry={true}
                                     value={password}
                                     onChangeText={password => setPassword(password)}
                                     />
@@ -82,7 +91,7 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                     mode="contained"
                                     onPress={handleSubmit}
                                     >
-                                    Submit
+                                    Create Account
                                 </Button>
 
                                 {alerts ? showAlerts() : null }

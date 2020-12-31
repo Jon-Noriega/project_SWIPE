@@ -69,6 +69,7 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
         <View>
             <Button
                 onPress={handleLogout}
+                style={{paddingBottom: 10}}
             >
                 <Caption>Logout</Caption>
             </Button>

@@ -11,9 +11,10 @@ const FavoriteCard = ({ favorite }) => {
     <Card>
         <Card.Content>
             <Card.Cover
-                style={styles.image}
+                // resizeMode="cover"
+                style={{ borderRadius: 8 }}
                 source={{ uri: favorite.photo }}
-                resizeMode="cover"
+                style={{resizeMode: "cover"}}
             />
             <Headline style={{ color: "#e0b402", fontWeight: "500", fontSize: 28 }}>{favorite.name}</Headline>
             <Paragraph>{favorite.description}</Paragraph>

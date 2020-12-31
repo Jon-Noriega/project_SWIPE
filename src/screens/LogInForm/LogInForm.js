@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import { TextInput, HelperText, Button, Headline, Caption } from "react-native-paper"
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { colors } from '../../constants'
 
 const loginURL = "http://localhost:3000/login/"
 
@@ -48,26 +47,30 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
 
     return (
         <>
-            <View>
-                <Headline>Sign In</Headline>
+            <View
+            style={{ width: 300, alignSelf: "center", justifyContent: "center" }}
+            >
 
                     <TextInput
+                        // style={{ width: 300, alignSelf: "center", borderRadius: 8 }}
                         selectionColor='#0048e8'
-                        underlineColor='#e0b402'
                         label="Username"
                         value={username}
                         onChangeText={username => setUsername(username)}
                     />
                     <TextInput
+                        // style={{ width: 300, alignSelf: "center" }}
                         label="Password"
+                        secureTextEntry={true}
                         value={password}
                         onChangeText={password => setPassword(password)}
                     />
                     <Button
+                        // style={{ width: 300, alignSelf: "center" }}
                         mode="contained"
                         onPress={handleSubmit}
                     >
-                        Submit
+                        Sign In
                     </Button>
 
                     {alerts ? showAlerts() : null }

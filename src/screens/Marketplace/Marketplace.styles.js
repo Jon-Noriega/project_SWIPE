@@ -9,7 +9,18 @@ export default StyleSheet.create({
         justifyContent: 'space-between'
     },
     swiperContainer: {
-        height: height - 370,
+        height: height - 380,
+    },
+    cardDetailsContainer: {
+        flex: 1,
+        alignItems: "center"
+    },
+    buttonsContainer: {
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        flexDirection: 'row',
+        paddingHorizontal: '10%',
+        paddingBottom: 10,
     },
     overlayWrapper: {
         flexDirection: 'column',
@@ -17,17 +28,5 @@ export default StyleSheet.create({
         justifyContent: 'flex-start',
         marginTop: 30,
         marginLeft: -30,
-    },
-    cardDetailsContainer: {
-        flex: 0.95,
-        alignItems: "center",
-        justifyContent: "space-evenly"
-    },
-    buttonsContainer: {
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        flexDirection: 'row',
-        paddingHorizontal: '15%',
-        paddingBottom: 50,
     }
 })

@@ -20,7 +20,7 @@ export default StyleSheet.create({
         elevation: 2,
     },
     image: {
-        borderRadius: 5,
+        borderRadius: 8,
         flex: 1,
         width: '100%',
     },
