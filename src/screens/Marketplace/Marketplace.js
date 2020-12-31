@@ -62,16 +62,18 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
             <View style={styles.swiperContainer}>
                 <Swiper
                     ref={swiperRef}
+                    animateCardOpacity
                     cards={users}
-                    cardIndex={index}
                     renderCard={() => <MarketplaceCardImage card={users[index]} />}
+                    // renderCard={card => <MarketplaceCardImage card={card} />}
+                    cardIndex={index}
+                    backgroundColor="transparent"
+                    // showSecondCard
+                    // stackSize={2}
+                    infinite
                     onSwiped={onSwiped}
                     onSwipedRight={onSwipedRight}
-                    stackSize={3}
                     disableBottomSwipe
-                    showSecondCard
-                    infinite
-                    backgroundColor="transparent"
                     animateOverlayLabelsOpacity
                     overlayLabels={{
                         left: {
@@ -109,13 +111,15 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
 
             <View style={styles.buttonsContainer}>
                 <MarketplaceCardButtons
-                    icon={faTimes}
+                    // icon={faTimes}
+                    name="close"
                     onPress={() => swiperRef.current.swipeLeft()}
                     color="white"
                     backgroundColor="#960505"
                     />
                 <MarketplaceCardButtons
-                    icon={faHeart}
+                    // icon={faHeart}
+                    name="heart"
                     onPress={() => swiperRef.current.swipeRight(onSwipedRight)}
                     color="white"
                     backgroundColor="#040963"

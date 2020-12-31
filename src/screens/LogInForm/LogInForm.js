@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { View } from 'react-native'
-import { TextInput, HelperText, Button, Headline } from "react-native-paper"
+import { TextInput, HelperText, Button, Headline, Caption } from "react-native-paper"
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const loginURL = "http://localhost:3000/login/"
@@ -41,29 +41,42 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
     
     const showAlerts = () => alerts.map(alert => <HelperText type="error">{alert}</HelperText>)
 
+    const handleCreateAccount = () => {
+        navigation.navigate("Sign Up")
+    }
+
     return (
-        <View>
-            <Headline>Sign In</Headline>
+        <>
+            <View>
+                <Headline>Sign In</Headline>
 
-                <TextInput
-                    label="Username"
-                    value={username}
-                    onChangeText={username => setUsername(username)}
-                />
-                <TextInput
-                    label="Password"
-                    value={password}
-                    onChangeText={password => setPassword(password)}
-                />
+                    <TextInput
+                        label="Username"
+                        value={username}
+                        onChangeText={username => setUsername(username)}
+                    />
+                    <TextInput
+                        label="Password"
+                        value={password}
+                        onChangeText={password => setPassword(password)}
+                    />
+                    <Button
+                        mode="contained"
+                        onPress={handleSubmit}
+                    >
+                        Submit
+                    </Button>
+
+                    {alerts ? showAlerts() : null }
+            </View>
+            <View>
                 <Button
-                    mode="contained"
-                    onPress={handleSubmit}
+                    onPress={handleCreateAccount}
                 >
-                    Submit
+                    <Caption>Create Account</Caption>
                 </Button>
-
-                {alerts ? showAlerts() : null }
-        </View>
+            </View>
+        </>
     )
 }
 

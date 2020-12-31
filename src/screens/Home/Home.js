@@ -6,7 +6,9 @@ import { Marketplace, Favorites } from '../index'
 import { NavigationContainer } from "@react-navigation/native"
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { Caption, Button } from "react-native-paper"
-
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
 
@@ -21,10 +23,25 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
     return (
         <>
         <NavigationContainer independent={true}>
-            <Tab.Navigator>
+            <Tab.Navigator
+                // screenOptions={({ route }) => ({
+                //     tabBarIcon: () => {
+                //         if (route.name === 'Marketplace') {
+                //             icon={faTimes}
+                //         } else {
+                //             icon={faHeart}
+                //         }
+                //         return <FontAwesomeIcon icon={icon}/>;
+                //     },
+                // })}
+            >
 
                 <Tab.Screen
                     name="Marketplace"
+                    // options={{
+                    //     tabBarIcon:() => <FontAwesomeIcon icon={faHeart}/>
+                    // }}
+                    // icon={faHeart}
                 >
                     {(props) => <Marketplace
                         {...props}
@@ -51,7 +68,6 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
 
         <View>
             <Button
-                title
                 onPress={handleLogout}
             >
                 <Caption>Logout</Caption>

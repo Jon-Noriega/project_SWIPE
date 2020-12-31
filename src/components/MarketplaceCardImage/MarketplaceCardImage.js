@@ -17,7 +17,7 @@ const MarketplaceCardImage = ({ card }) => {
                 ?
                 <Image
                 style={styles.image}
-                source={{uri: card.photo}}
+                source={{ uri: card.photo }}
                 resizeMode="cover"
                 />
                 : null

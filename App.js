@@ -12,7 +12,7 @@ import styles from './App.styles';
 const usersURL = "http://localhost:3000/users/"
 
 const App = () => {
-  // LogBox.ignoreAllLogs()
+  LogBox.ignoreAllLogs()
 
   const Stack = createStackNavigator()
   
@@ -76,18 +76,19 @@ const App = () => {
   return (
       <NavigationContainer>
 
-          <Stack.Navigator initialRouteName="Sign Up">
+          <Stack.Navigator initialRouteName="Log In">
 
             <Stack.Screen
-                name="FREEAGENT"
+                name="Log In"
             >
-                {(props) => <Home
+                {(props) => <LogInForm
                     {...props}
-                    user={user}
-                    users={users}
-                    favorites={favorites}
                     setUser={setUser}
+                    setUsers={setUsers}
+                    getUsers={getUsers}
                     setFavorite={setFavorite}
+                    alerts={alerts}
+                    setAlerts={setAlerts}
                     />
                   }
             </Stack.Screen>
@@ -98,23 +99,22 @@ const App = () => {
                 {(props) => <SignUpForm
                     {...props}
                     signUp={signUp}
-                    alerts={alerts}
                     getUsers={getUsers}
+                    alerts={alerts}
                     />
                   }
             </Stack.Screen>
 
             <Stack.Screen
-                name="Log In"
+                name="FREEAGENT"
             >
-                {(props) => <LogInForm
+                {(props) => <Home
                     {...props}
-                    alerts={alerts}
+                    user={user}
+                    users={users}
                     setUser={setUser}
-                    setUsers={setUsers}
+                    favorites={favorites}
                     setFavorite={setFavorite}
-                    setAlerts={setAlerts}
-                    getUsers={getUsers}
                     />
                   }
             </Stack.Screen>
