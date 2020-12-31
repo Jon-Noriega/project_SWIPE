@@ -1,7 +1,7 @@
 <script src="http://localhost:8097"></script>
 
-import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, ScrollView, Image, Text } from 'react-native'
+import React from 'react'
+import { SafeAreaView, ScrollView } from 'react-native'
 import { FavoriteCard } from '../../components/index'
 import styles from './Favorites.styles'
 

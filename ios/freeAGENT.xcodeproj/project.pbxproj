@@ -125,6 +125,7 @@
 		13B07FAE1A68108700A75B9A /* freeAGENT */ = {
 			isa = PBXGroup;
 			children = (
+				8EA3BADA259E1CFF0056824E /* Fonts */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -182,6 +183,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8EA3BADA259E1CFF0056824E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E39CED7AF26F956FEDB690AC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +202,6 @@
 				1EBA423540A9331F91806412 /* Pods-freeAGENT-tvOSTests.debug.xcconfig */,
 				341519467929CC1B777AB4D4 /* Pods-freeAGENT-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

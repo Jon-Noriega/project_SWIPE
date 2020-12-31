@@ -1,9 +1,8 @@
 <script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
-import styles from './FavoriteCard.styles'
-
 import { Card, Headline, Title, Subheading, Paragraph, Caption, Button, Banner } from "react-native-paper"
+import styles from './FavoriteCard.styles'
 
 const FavoriteCard = ({ favorite }) => {
     const [visible, setVisible] = useState(true)
@@ -11,8 +10,12 @@ const FavoriteCard = ({ favorite }) => {
     return (
     <Card>
         <Card.Content>
-            <Card.Cover source={{ uri: favorite.photo }} />
-            <Headline>{favorite.name}</Headline>
+            <Card.Cover
+                style={styles.image}
+                source={{ uri: favorite.photo }}
+                resizeMode="cover"
+            />
+            <Headline style={{ color: "#e0b402", fontWeight: "500", fontSize: 28 }}>{favorite.name}</Headline>
             <Paragraph>{favorite.description}</Paragraph>
             <Subheading>Capstone: {favorite.project}</Subheading>
                 <Card.Actions>

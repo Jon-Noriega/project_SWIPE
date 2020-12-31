@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import { TextInput, HelperText, Button, Headline, Caption } from "react-native-paper"
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { colors } from '../../constants'
 
 const loginURL = "http://localhost:3000/login/"
 
@@ -51,6 +52,8 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
                 <Headline>Sign In</Headline>
 
                     <TextInput
+                        selectionColor='#0048e8'
+                        underlineColor='#e0b402'
                         label="Username"
                         value={username}
                         onChangeText={username => setUsername(username)}

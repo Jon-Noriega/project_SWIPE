@@ -111,18 +111,18 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
 
             <View style={styles.buttonsContainer}>
                 <MarketplaceCardButtons
-                    // icon={faTimes}
-                    name="close"
+                    icon={faTimes}
+                    // name="close"
                     onPress={() => swiperRef.current.swipeLeft()}
                     color="white"
-                    backgroundColor="#960505"
+                    backgroundColor="#adadad"
                     />
                 <MarketplaceCardButtons
-                    // icon={faHeart}
-                    name="heart"
+                    icon={faHeart}
+                    // name="heart"
                     onPress={() => swiperRef.current.swipeRight(onSwipedRight)}
                     color="white"
-                    backgroundColor="#040963"
+                    backgroundColor="#e0b402"
                     />
             </View>
         </View>
