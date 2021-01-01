@@ -29,7 +29,7 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
 
         signUp(user)
             .then(() => getUsers())
-            .then(navigation.navigate("FREEAGENT"))
+            .then(navigation.navigate("freeAGENT"))
     }
 
     const showAlerts = () => alerts.map(alert => <HelperText type="error">{alert}</HelperText>)

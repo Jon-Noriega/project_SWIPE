@@ -9,7 +9,7 @@ export default StyleSheet.create({
         justifyContent: 'space-between'
     },
     swiperContainer: {
-        height: height - 380,
+        height: height - 410,
     },
     cardDetailsContainer: {
         flex: 1,

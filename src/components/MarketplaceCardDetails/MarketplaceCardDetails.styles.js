@@ -4,24 +4,22 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
-    text: {
-        // fontFamily: 'Robot-Medium'
-    },
     name: {
-        fontSize: 25,
-        fontWeight: "500",
-        marginBottom: 10,
+        fontFamily: 'Caveat-Bold',
+        fontSize: 45,
         color: "#0048e8",
+        marginBottom: 10
     },
     description: {
-        fontSize: 16,
-        marginBottom: 10,
-        color: "black"
+        fontFamily: 'Roboto-Regular',
+        fontSize: 20,
+        color: "black",
+        marginBottom: 10
     },
     project: {
-        fontSize: 18,
-        fontWeight: "500",
-        marginBottom: 10,
-        color: "black"
+        fontFamily: 'Roboto-Medium',
+        fontSize: 20,
+        color: "black",
+        marginBottom: 10
     }
 })

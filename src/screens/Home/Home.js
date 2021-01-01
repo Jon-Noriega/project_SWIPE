@@ -6,9 +6,11 @@ import { Marketplace, Favorites } from '../index'
 import { NavigationContainer } from "@react-navigation/native"
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { Caption, Button } from "react-native-paper"
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
+
 
 const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
 
@@ -22,59 +24,57 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
 
     return (
         <>
-        <NavigationContainer independent={true}>
-            <Tab.Navigator
-                // screenOptions={({ route }) => ({
-                //     tabBarIcon: () => {
-                //         if (route.name === 'Marketplace') {
-                //             icon={faTimes}
-                //         } else {
-                //             icon={faHeart}
-                //         }
-                //         return <FontAwesomeIcon icon={icon}/>;
-                //     },
-                // })}
-            >
+            <NavigationContainer independent={true}>
 
-                <Tab.Screen
-                    name="Marketplace"
-                    // options={{
-                    //     tabBarIcon:() => <FontAwesomeIcon icon={faHeart}/>
-                    // }}
-                    // icon={faHeart}
+                <Tab.Navigator>
+
+                    <Tab.Screen
+                        name="Marketplace"
+
+                        // options={{
+                        //     tabBarIcon:() => <PersonPinIcon />
+                        // }}
+                        // icon={<PersonPinIcon />}
+                    >
+                        {(props) => <Marketplace
+                            {...props}
+                            user={user}
+                            users={users}
+                            favorites={favorites}
+                            setFavorite={setFavorite}
+                            />
+                        }
+                    </Tab.Screen>
+
+                    <Tab.Screen
+                        name="Favorites"
+                    >
+                        {(props) => <Favorites
+                            {...props}
+                            favorites={favorites}
+                            />
+                        }
+                    </Tab.Screen>
+
+                </Tab.Navigator>
+                
+            </NavigationContainer>
+
+            <View>
+
+                <Button
+                    onPress={handleLogout}
+                    style={{ 
+                        // fontFamily: "Caveat-Bold",
+                        // color: "#0048e8",
+                        paddingBottom: 10
+                    }}
                 >
-                    {(props) => <Marketplace
-                        {...props}
-                        user={user}
-                        users={users}
-                        favorites={favorites}
-                        setFavorite={setFavorite}
-                        />
-                    }
-                </Tab.Screen>
+                    <Caption>Logout</Caption>
+                </Button>
 
-                <Tab.Screen
-                    name="Favorites"
-                >
-                    {(props) => <Favorites
-                        {...props}
-                        favorites={favorites}
-                        />
-                    }
-                </Tab.Screen>
-
-            </Tab.Navigator>
-        </NavigationContainer>
-
-        <View>
-            <Button
-                onPress={handleLogout}
-                style={{paddingBottom: 10}}
-            >
-                <Caption>Logout</Caption>
-            </Button>
-        </View>
-    </>
+            </View>
+        </>
     )
 }
 

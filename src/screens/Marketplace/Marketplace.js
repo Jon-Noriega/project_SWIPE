@@ -5,8 +5,6 @@ import { View } from 'react-native'
 import { MarketplaceCardImage, MarketplaceCardDetails, MarketplaceCardButtons, MarketplaceOverlayLabels } from '../../components/index'
 import Swiper from 'react-native-deck-swiper'
 import { Transitioning, Transition } from "react-native-reanimated"
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './Marketplace.styles'
 
@@ -111,15 +109,13 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
 
             <View style={styles.buttonsContainer}>
                 <MarketplaceCardButtons
-                    icon={faTimes}
-                    // name="close"
+                    name="emoticon-confused-outline"
                     onPress={() => swiperRef.current.swipeLeft()}
                     color="white"
                     backgroundColor="#212121"
                     />
                 <MarketplaceCardButtons
-                    icon={faHeart}
-                    // name="heart"
+                    name="heart-plus-outline"
                     onPress={() => swiperRef.current.swipeRight(onSwipedRight)}
                     color="white"
                     backgroundColor="#e0b402"

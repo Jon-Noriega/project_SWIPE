@@ -2,8 +2,7 @@
 
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './MarketplaceCardButtons.styles'
 
 const MarketplaceCardButtons = ({ icon, name, onPress, color, backgroundColor }) => (
@@ -12,10 +11,8 @@ const MarketplaceCardButtons = ({ icon, name, onPress, color, backgroundColor })
         onPress={onPress}
         activeOpacity={0.5}
     >
-        <FontAwesomeIcon
-        // <Icon
-            icon={icon}
-            // name={name}
+        <Icon
+            name={name}
             size={45}
             color={color}
         />
