@@ -5,15 +5,15 @@ const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
     card: {
-        height: height - 470,
+        height: height - 500,
         justifyContent: 'center',
         alignItems: "center",
         backgroundColor: "white",
         borderRadius: 5,
         shadowColor: "black",
         shadowOffset: {
-        width: 0,
-        height: 2,
+            width: 0,
+            height: 2,
         },
         shadowRadius: 6,
         shadowOpacity: 0.3,

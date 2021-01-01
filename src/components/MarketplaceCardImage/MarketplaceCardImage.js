@@ -9,20 +9,20 @@ const MarketplaceCardImage = ({ card }) => {
     console.log(card, "TEST 2 - MARKETPLACE CARD COMPONENT")
 
     return (
-        <View
-        activeOpacity={1}
-        style={styles.card}
-        >
+        <View style={styles.card}>
+
             {card
                 ?
                 <Image
-                style={styles.image}
-                source={{ uri: card.photo }}
-                resizeMode="cover"
+                    style={styles.image}
+                    source={{ uri: card.photo }}
+                    resizeMode="cover"
                 />
                 : null
             }
+            
         </View>
-)}
+    )
+}
 
 export default MarketplaceCardImage

@@ -74,27 +74,27 @@ const App = () => {
   }
 
   return (
-      <NavigationContainer
-
-        // style={{ 
-        //   fontFamily: "Caveat-Bold",
-        //   color: "#0048e8"
-        // }}
-      >
+      <NavigationContainer>
 
           <Stack.Navigator
             initialRouteName="Log In"
-
-            // style={{ 
-            //   fontFamily: "Caveat-Bold",
-            //   color: "#0048e8"
-            // }}
           >
 
             <Stack.Screen
                 name="Log In"
-                options={{ headerShown: false }}
-            >
+
+                options={{
+                  title: "freeAGENT",
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerTitleStyle: {
+                    fontFamily: "Caveat-Bold",
+                    fontSize: 40
+                  },
+                  headerTintColor: '#212121',
+                }}
+                >
                 {(props) => <LogInForm
                     {...props}
                     setUser={setUser}
@@ -109,6 +109,19 @@ const App = () => {
 
             <Stack.Screen
                 name="Sign Up"
+
+                options={{
+                  title: "freeAGENT",
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerTitleStyle: {
+                    fontFamily: "Caveat-Bold",
+                    fontSize: 40
+                  },
+                  headerTintColor: '#212121',
+                  headerBackTitleVisible: false
+                }}
             >
                 {(props) => <SignUpForm
                     {...props}
@@ -120,8 +133,20 @@ const App = () => {
             </Stack.Screen>
 
             <Stack.Screen
-                name="freeAGENT"
-                options={{ headerBackTitleVisible: false }}
+                name="Home"
+
+                options={{
+                  title: "freeAGENT",
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerTitleStyle: {
+                    fontFamily: "Caveat-Bold",
+                    fontSize: 40
+                  },
+                  headerTintColor: '#212121',
+                  headerBackTitleVisible: false
+                }}
             >
                 {(props) => <Home
                     {...props}

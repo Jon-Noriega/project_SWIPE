@@ -15,17 +15,13 @@ import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
         ...DefaultTheme.colors,
         primary: '#e0b402',
         accent: '#0048e8',
-        },
-        fontFamily: {
-        ...DefaultTheme.fontFamily,   
-        primary: 'Roboto-Regular'
         }
     }
 
 export default function Main() {
     return (
         <PaperProvider theme={theme}>
-            <App />
+            <App/>
         </PaperProvider>
     );
 }

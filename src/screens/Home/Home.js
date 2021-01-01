@@ -6,10 +6,7 @@ import { Marketplace, Favorites } from '../index'
 import { NavigationContainer } from "@react-navigation/native"
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { Caption, Button } from "react-native-paper"
-import Icon from 'react-native-vector-icons/FontAwesome'
-import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
@@ -26,15 +23,19 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
         <>
             <NavigationContainer independent={true}>
 
-                <Tab.Navigator>
+                <Tab.Navigator
+                    tabBarOptions={{
+                        showIcon: true,
+                        labelStyle: { fontFamily: "Roboto-Medium" },
+                        style: { backgroundColor: 'transparent' }
+                    }}
+                >
 
                     <Tab.Screen
                         name="Marketplace"
-
-                        // options={{
-                        //     tabBarIcon:() => <PersonPinIcon />
-                        // }}
-                        // icon={<PersonPinIcon />}
+                        options={{
+                            tabBarIcon: () => <Icon name="account-group-outline" color="#0048e8" size={25} />
+                        }}
                     >
                         {(props) => <Marketplace
                             {...props}
@@ -48,6 +49,9 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
 
                     <Tab.Screen
                         name="Favorites"
+                        options={{
+                            tabBarIcon: () => <Icon name="heart-multiple" color="#e0b402" size={25} />
+                        }}
                     >
                         {(props) => <Favorites
                             {...props}

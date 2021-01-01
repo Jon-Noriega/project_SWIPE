@@ -9,7 +9,9 @@ const FavoriteCard = ({ favorite }) => {
     const [visible, setVisible] = useState(true)
 
     return (
-    <Card>
+    <Card
+        style={{backgroundColor: 'transparent'}}
+    >
         <Card.Content>
 
             <Card.Cover

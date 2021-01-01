@@ -29,7 +29,7 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
                     setUser(response.user),
                     setFavorite(response.friends),
                     setAlerts(["Successful login!"]),
-                    navigation.navigate("freeAGENT")
+                    navigation.navigate("Home")
                 }
             })
             .then(() => getUsers())

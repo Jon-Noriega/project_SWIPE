@@ -55,7 +55,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
 
     return (
         <View
-            style={styles.marketplaceContainer}
+            style={styles.container}
         >
             <View style={styles.swiperContainer}>
                 <Swiper
@@ -121,6 +121,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                     backgroundColor="#e0b402"
                     />
             </View>
+
         </View>
     )
 }

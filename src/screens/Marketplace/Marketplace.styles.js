@@ -3,13 +3,12 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
-    marketplaceContainer: {
-        height: height,
+    container: {
         flex: 1,
         justifyContent: 'space-between'
     },
     swiperContainer: {
-        height: height - 410,
+        height: height - 435,
     },
     cardDetailsContainer: {
         flex: 1,
