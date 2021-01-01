@@ -12,7 +12,7 @@ import styles from './App.styles';
 const usersURL = "http://localhost:3000/users/"
 
 const App = () => {
-  // LogBox.ignoreAllLogs()
+  LogBox.ignoreAllLogs()
 
   const Stack = createStackNavigator()
   
@@ -75,6 +75,7 @@ const App = () => {
 
   return (
       <NavigationContainer
+
         // style={{ 
         //   fontFamily: "Caveat-Bold",
         //   color: "#0048e8"
@@ -82,7 +83,8 @@ const App = () => {
       >
 
           <Stack.Navigator
-            // initialRouteName="Log In"
+            initialRouteName="Log In"
+
             // style={{ 
             //   fontFamily: "Caveat-Bold",
             //   color: "#0048e8"
@@ -91,6 +93,7 @@ const App = () => {
 
             <Stack.Screen
                 name="Log In"
+                options={{ headerShown: false }}
             >
                 {(props) => <LogInForm
                     {...props}
@@ -118,6 +121,7 @@ const App = () => {
 
             <Stack.Screen
                 name="freeAGENT"
+                options={{ headerBackTitleVisible: false }}
             >
                 {(props) => <Home
                     {...props}
