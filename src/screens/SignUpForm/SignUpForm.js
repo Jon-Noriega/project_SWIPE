@@ -1,7 +1,7 @@
 <script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
-import { Modal, Portal, TextInput, HelperText, Button, Headline, Provider } from "react-native-paper"
+import { Modal, Portal, TextInput, HelperText, Button, Headline, Caption, Provider } from "react-native-paper"
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
@@ -97,8 +97,28 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                 {alerts ? showAlerts() : null }
                     </Modal>
                 </Portal>
-                <Button style={{marginTop: 30}} onPress={showModal}>
-                    Create Account
+                <Button
+                    mode="contained"
+                    icon="account-plus"
+                    onPress={showModal}
+                    style={{
+                        marginVertical: 350,
+                        width: 250,
+                        height: 40,
+                        borderRadius: 8,
+                        alignSelf: "center"
+                    }}
+                >
+                    <Caption
+                        style={{
+                            fontFamily: "Roboto-Regular",
+                            fontSize: 15,
+                            fontWeight: "600",
+                            color: "white",
+                        }}
+                    >
+                        Create Account
+                    </Caption>
                 </Button>
             </Provider>
     )

@@ -1,7 +1,7 @@
 <script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
-import { View } from "react-native"
+import { View, Image } from "react-native"
 import { Card, Headline, Title, Subheading, Paragraph, Caption, Button, Banner } from "react-native-paper"
 import styles from './FavoriteCard.styles'
 
@@ -9,6 +9,7 @@ const FavoriteCard = ({ favorite }) => {
     const [visible, setVisible] = useState(true)
 
     return (
+        
     <Card
         style={{backgroundColor: 'transparent'}}
     >
@@ -16,15 +17,30 @@ const FavoriteCard = ({ favorite }) => {
 
             <Card.Cover
                 source={{ uri: favorite.photo }}
+                // resizeMode="cover"
+                // resizeMethod="auto"
+
                 // backgroundImage={{ uri: favorite.photo }}
-                resizeMode="cover"
-                // style={{ backgroundImage: favorite.photo }}
+                // backgroundSize="cover"
+
+                // style={{
+                //     backgroundImage: favorite.photo,
+                //     backgroundSize: "cover"
+                // }}
+
+                style={{
+                    height: 500,
+                    borderRadius: 8
+                    // height: Image.resolveAssetSource({ uri: favorite.photo })
+                }}
+
                 />
 
             <Headline
                 style={{ 
-                    fontFamily: "Caveat-Bold",
+                    fontFamily: "Caveat-Regular",
                     fontSize: 35,
+                    fontWeight: "700",
                     color: "#0048e8",
                     paddingTop: 20
                 }}>
@@ -45,6 +61,7 @@ const FavoriteCard = ({ favorite }) => {
                 style={{
                     fontFamily: 'Roboto-Regular',
                     fontSize: 18,
+                    fontWeight: "500",
                     color: "black"
                 }}
             >

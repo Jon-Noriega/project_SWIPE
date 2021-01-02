@@ -83,7 +83,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                         },
                         right: {
                             title: 'LIKE',
-                            element: <MarketplaceOverlayLabels label="FAVORITE" color="#0048e8" />,
+                            element: <MarketplaceOverlayLabels label="FAVORITE" color="#e0b402" />,
                             style: {
                                 wrapper: {
                                     ...styles.overlayWrapper,

@@ -34,7 +34,7 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
                     <Tab.Screen
                         name="Marketplace"
                         options={{
-                            tabBarIcon: () => <Icon name="account-group-outline" color="#0048e8" size={25} />
+                            tabBarIcon: () => <Icon name="account-group" color="#0048e8" size={25} />
                         }}
                     >
                         {(props) => <Marketplace
@@ -69,12 +69,19 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
                 <Button
                     onPress={handleLogout}
                     style={{ 
-                        // fontFamily: "Caveat-Bold",
-                        // color: "#0048e8",
                         paddingBottom: 10
                     }}
                 >
-                    <Caption>Logout</Caption>
+                    <Caption
+                        style={{
+                            fontFamily: "Roboto-Regular",
+                            fontSize: 15,
+                            fontWeight: "600"
+                        }}
+                    >
+                        Logout
+                    </Caption>
+
                 </Button>
 
             </View>
