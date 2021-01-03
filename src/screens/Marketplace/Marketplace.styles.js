@@ -5,18 +5,25 @@ const { height } = Dimensions.get('window')
 export default StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     swiperContainer: {
         height: height - 435,
+        position: "absolute",
+        top: -45
+
     },
     cardDetailsContainer: {
         flex: 1,
-        alignItems: "center"
+        position: "absolute",
+        bottom: 90,
+        alignSelf: "center"
     },
     buttonsContainer: {
-        justifyContent: 'space-around',
-        alignItems: 'center',
+        position: "absolute",
+        bottom: -35,
+        justifyContent: 'space-between',
+        alignSelf: 'center',
         flexDirection: 'row',
         paddingHorizontal: '10%',
         paddingBottom: 10,

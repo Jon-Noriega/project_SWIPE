@@ -65,7 +65,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                     renderCard={() => <MarketplaceCardImage card={users[index]} />}
                     // renderCard={card => <MarketplaceCardImage card={card} />}
                     cardIndex={index}
-                    backgroundColor="transparent"
+                    backgroundColor="whitesmoke"
                     // showSecondCard
                     // stackSize={2}
                     infinite

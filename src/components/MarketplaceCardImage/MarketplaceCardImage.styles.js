@@ -1,14 +1,13 @@
 import { StyleSheet, Dimensions } from 'react-native'
-import { colors } from '../../constants/index'
 
 const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
     card: {
-        height: height - 500,
+        height: height - 450,
         justifyContent: 'center',
         alignItems: "center",
-        backgroundColor: "white",
+        backgroundColor: "whitesmoke",
         borderRadius: 8,
         shadowColor: "black",
         shadowOffset: {
@@ -22,6 +21,6 @@ export default StyleSheet.create({
     image: {
         borderRadius: 8,
         flex: 1,
-        width: '100%',
+        width: '100%'
     },
 })

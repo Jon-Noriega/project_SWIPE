@@ -87,7 +87,7 @@ const App = () => {
                   title: "freeAGENT",
                   headerShown: false,
                   headerStyle: {
-                    backgroundColor: 'transparent',
+                    backgroundColor: 'whitesmoke',
                   },
                   headerTitleStyle: {
                     fontFamily: "Caveat-Bold",
@@ -115,7 +115,7 @@ const App = () => {
                 options={{
                   title: "freeAGENT",
                   headerStyle: {
-                    backgroundColor: 'transparent',
+                    backgroundColor: 'whitesmoke',
                   },
                   headerTitleStyle: {
                     fontFamily: "Caveat-Bold",
@@ -141,12 +141,12 @@ const App = () => {
                 options={{
                   title: "freeAGENT",
                   headerStyle: {
-                    backgroundColor: 'transparent',
+                    backgroundColor: 'whitesmoke',
                   },
                   headerTitleStyle: {
                     fontFamily: "Caveat-Bold",
                     fontSize: 40,
-                    paddingHorizontal: 10
+                    paddingHorizontal: 30
                   },
                   headerTintColor: '#212121',
                   headerBackTitleVisible: false

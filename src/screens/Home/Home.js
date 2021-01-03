@@ -27,7 +27,7 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
                     tabBarOptions={{
                         showIcon: true,
                         labelStyle: { fontFamily: "Roboto-Medium" },
-                        style: { backgroundColor: 'transparent' }
+                        style: { backgroundColor: 'whitesmoke' }
                     }}
                 >
 

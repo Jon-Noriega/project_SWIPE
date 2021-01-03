@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     singleButton: {
-        backgroundColor: 'transparent',
+        backgroundColor: 'whitesmoke',
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
@@ -15,5 +15,6 @@ export default StyleSheet.create({
         shadowOpacity: 0.3,
         elevation: 2,
         padding: 15,
+        margin: 35
     },
 })

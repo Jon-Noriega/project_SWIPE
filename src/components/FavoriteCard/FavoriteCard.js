@@ -11,7 +11,7 @@ const FavoriteCard = ({ favorite }) => {
     return (
         
     <Card
-        style={{backgroundColor: 'transparent'}}
+        style={{backgroundColor: 'whitesmoke'}}
     >
         <Card.Content>
 

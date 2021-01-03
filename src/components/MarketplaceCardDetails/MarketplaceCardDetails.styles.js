@@ -8,7 +8,7 @@ export default StyleSheet.create({
         fontFamily: 'Caveat-Bold',
         fontSize: 45,
         color: "#0048e8",
-        marginBottom: 10
+        marginBottom: 5
     },
     description: {
         fontFamily: 'Roboto-Regular',

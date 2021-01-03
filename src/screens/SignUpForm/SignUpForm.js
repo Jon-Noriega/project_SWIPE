@@ -1,6 +1,7 @@
 <script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
+import { Text } from 'react-native'
 import { Modal, Portal, TextInput, HelperText, Button, Headline, Caption, Provider } from "react-native-paper"
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
@@ -32,7 +33,17 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
             .then(navigation.navigate("Home"))
     }
 
-    const showAlerts = () => alerts.map(alert => <HelperText type="error">{alert}</HelperText>)
+    const showAlerts = () => (
+        alerts.map(alert =>
+            <HelperText
+                style={{fontFamily: "Roboto-Italic",
+                    fontSize: 20,
+                    fontWeight: "600",
+                    color: "black"
+                }}
+                type="error">{alert}
+            </HelperText>)
+    )
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
@@ -45,7 +56,7 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
         accent: '#e0b402',
         },
     };
-    const containerStyle = {backgroundColor: 'white', padding: 20, margin: 20, borderRadius: 8 };
+    const containerStyle = {backgroundColor: 'whitesmoke', padding: 20, margin: 20, borderRadius: 8 };
     
     return (
             <Provider theme={theme} >
@@ -55,46 +66,101 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                     label="Name"
                                     value={name}
                                     onChangeText={name => setName(name)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <TextInput  
                                     label="Photo"
                                     value={photo}
                                     onChangeText={photo => setPhoto(photo)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <TextInput
                                     label="Description"
                                     value={description}
                                     onChangeText={description => setDescription(description)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <TextInput
                                     label="Project"
                                     value={project}
                                     onChangeText={project => setProject(project)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <TextInput
                                     label="User Type"
                                     value={userType}
                                     onChangeText={userType => setUserType(userType)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <TextInput
                                     label="Username"
                                     value={username}
                                     onChangeText={username => setUsername(username)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <TextInput
                                     label="Password"
                                     secureTextEntry={true}
                                     value={password}
                                     onChangeText={password => setPassword(password)}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     />
                                 <Button
                                     mode="contained"
                                     onPress={handleSubmit}
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
                                     >
                                     Create Account
                                 </Button>
 
-                                {alerts ? showAlerts() : null }
+                                <Text
+                                    style={{
+                                        alignSelf: "center",
+                                        marginTop: 10
+                                    }}
+                                >
+                                    {alerts ? showAlerts() : null }
+                                </Text>
                     </Modal>
                 </Portal>
                 <Button

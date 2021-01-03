@@ -1,10 +1,9 @@
 <script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, Dimensions } from 'react-native'
 import { HelperText, Caption, Button } from "react-native-paper"
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const loginURL = "http://localhost:3000/login/"
 
@@ -30,7 +29,7 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
                     setUser(response.user),
                     setFavorite(response.friends),
                     setAlerts(["Happy Swiping!"]),
-                    navigation.navigate("Home")
+                    setTimeout(() => navigation.navigate("Home"), 1200)  
                 }
             })
             .then(() => getUsers())
@@ -56,12 +55,12 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
         navigation.navigate("Sign Up")
     }
 
+    const { height } = Dimensions.get('window')
+    
     return (
 
         <View
-            style={{
-                // backgroundColor: "#e0b402"
-            }}
+            style={{height: height}}
         >
 
             <Text
@@ -84,6 +83,7 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
                 onChangeText={username => setUsername(username)}
                 placeholder="Username"
                 placeholderTextColor="white"
+                selectionColor="white"
                 style={{
                     width: 275,
                     alignSelf: "center",
@@ -103,6 +103,7 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
                 secureTextEntry={true}
                 placeholder="Password"
                 placeholderTextColor="white"
+                selectionColor="white"
                 style={{
                     width: 275,
                     alignSelf: "center",
@@ -195,6 +196,19 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
                 </Button>
 
             </View>
+
+            <Text
+                style={{
+                    fontFamily: "Roboto-Italic",
+                    fontSize: 20,
+                    alignSelf: "center",
+                    marginTop: 10,
+                    position: 'absolute',
+                    bottom: 50
+                }}
+            >
+                hecho con mil💛
+            </Text>
 
         </View>
 
