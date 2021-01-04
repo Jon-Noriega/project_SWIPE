@@ -62,12 +62,12 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                     ref={swiperRef}
                     animateCardOpacity
                     cards={users}
-                    renderCard={() => <MarketplaceCardImage card={users[index]} />}
-                    // renderCard={card => <MarketplaceCardImage card={card} />}
+                    // renderCard={() => <MarketplaceCardImage card={users[index]} />}  
+                    renderCard={card => <MarketplaceCardImage card={card} />}
                     cardIndex={index}
                     backgroundColor="whitesmoke"
-                    // showSecondCard
-                    // stackSize={2}
+                    showSecondCard
+                    stackSize={2}
                     infinite
                     onSwiped={onSwiped}
                     onSwipedRight={onSwipedRight}
@@ -116,7 +116,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                     />
                 <MarketplaceCardButtons
                     name="heart-plus-outline"
-                    onPress={() => swiperRef.current.swipeRight(onSwipedRight)}
+                    onPress={() => swiperRef.current.swipeRight()}
                     color="white"
                     backgroundColor="#e0b402"
                     />
