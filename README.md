@@ -74,6 +74,78 @@ You are now ready to start using the first iteration of freeAGENT.<br>
 
 <h2>Code Examples</h2>
 
+<h4>Swiper Component: Props</h4>
+
+```
+<Swiper
+    ref={swiperRef}
+    animateCardOpacity
+    cards={users}
+    renderCard={card => <MarketplaceCardImage card={card} />}
+    cardIndex={index}
+    backgroundColor="whitesmoke"
+    showSecondCard
+    stackSize={2}
+    infinite
+    onSwiped={onSwiped}
+    onSwipedRight={onSwipedRight}
+    disableBottomSwipe
+    animateOverlayLabelsOpacity
+    overlayLabels={{
+        left: {
+            title: 'PASS',
+            element: <MarketplaceOverlayLabels label="PASS" color="Black" />,
+            style: {
+                wrapper: styles.overlayWrapper,
+            },
+        },
+        right: {
+            title: 'LIKE',
+            element: <MarketplaceOverlayLabels label="FAVORITE" color="#e0b402" />,
+            style: {
+                wrapper: {
+                    ...styles.overlayWrapper,
+                    alignItems: 'flex-start',
+                    marginLeft: 30,
+                },
+            },
+        },
+    }}
+/>
+```
+
+<h4>Swiper Component: onSwiped Method</h4>
+
+```
+const onSwiped = () => {
+    transitionRef.current.animateNextTransition()
+    setIndex((index + 1) % users.length)
+}
+```
+
+<h4>Self-Referential Model: Persisting Friendships onSwipedRight</h4>
+
+```
+const onSwipedRight = () => {
+    setFavorite([...favorites, users[index]])
+
+    AsyncStorage.getItem("token")
+        .then(token => {
+            fetch(favoritesURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    user_id: user.id,
+                    friend_id: users[index].id
+                })
+            })
+        })
+}
+```
+
 <h2>Status</h2>
 
 We're looking forward to rolling-out the following feature:
