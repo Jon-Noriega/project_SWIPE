@@ -17,29 +17,18 @@ const FavoriteCard = ({ favorite }) => {
 
             <Card.Cover
                 source={{ uri: favorite.photo }}
-                // resizeMode="cover"
-                // resizeMethod="auto"
-
-                // backgroundImage={{ uri: favorite.photo }}
-                // backgroundSize="cover"
-
-                // style={{
-                //     backgroundImage: favorite.photo,
-                //     backgroundSize: "cover"
-                // }}
+                resizeMode="cover"
 
                 style={{
                     height: 500,
                     borderRadius: 8
-                    // height: Image.resolveAssetSource({ uri: favorite.photo })
                 }}
-
                 />
 
             <Headline
                 style={{ 
                     fontFamily: "Caveat-Regular",
-                    fontSize: 35,
+                    fontSize: 40,
                     fontWeight: "700",
                     color: "#0048e8",
                     paddingTop: 20
@@ -74,8 +63,16 @@ const FavoriteCard = ({ favorite }) => {
                     <Button
                         style={{
                             fontFamily: 'Roboto-Regular',
-                            fontSize: 18,
-                            color: "black"
+                            fontSize: 20,
+                            color: "black",
+                            shadowColor: "black",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowRadius: 0,
+                            shadowOpacity: 0.3,
+                            elevation: 2,
                         }}
                         visible={visible}
                         onPress={() => setVisible(false)}
@@ -85,8 +82,16 @@ const FavoriteCard = ({ favorite }) => {
                     <Button
                         style={{
                             fontFamily: 'Roboto-Regular',
-                            fontSize: 18,
-                            color: "black"
+                            fontSize: 20,
+                            color: "black",
+                            shadowColor: "black",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowRadius: 0,
+                            shadowOpacity: 0.3,
+                            elevation: 2,
                         }}
                         visible={visible}
                         onPress={() => setVisible(false)}
