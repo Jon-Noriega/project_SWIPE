@@ -69,7 +69,7 @@ You are now ready to start using the first iteration of freeAGENT.<br>
  <li>You are now authorized and free to explore our talent community.</li>
  <li>Add candidates to your list of Favorites by either swiping right on their profile card or clicking on the Favorite button.</li>
  <li>You may also choose to pass on a particular candidate by either swiping left on their profile card or clicking on the Pass button.</li>
- <li>Review your list of Favorite candidates by swiping right on the homepage screen or selecting the "Favorites" tab.</li>
+ <li>Review your list of favorite candidates by swiping left on the homepage screen or selecting the "Favorites" tab.</li>
 </ol>
 
 <h2>Code Examples</h2>
