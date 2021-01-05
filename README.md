@@ -40,10 +40,10 @@ Start the app build and run the application with the following commands:<br>
 <li><code>npx react-native start</code></li>
 <li><code>npx react-native run-ios</code></li><br>
 
-Refer to the below if you need to install any libraries or autolink dependencies.
+Refer to the below if you need to install any libraries or autolink dependencies.<br>
 
 Initiate a new React Native CLI project with the following command:<br>
-<li><code>npx react-native init freeAGENT</code></li>
+<li><code>npx react-native init freeAGENT</code></li><br>
 
 Install the following libraries:<br>
 <li><code>npm i react-native-deck-swiper</code></li>
@@ -53,10 +53,10 @@ Install the following libraries:<br>
 <li><code>npm i @react-navigation/native</code></li>
 <li><code>npm i @react-native-async-storage/async-storage</code></li>
 <li><code>npm i react-native-paper</code></li>
-<li><code>npm i @material-ui/core</code></li>
+<li><code>npm i @material-ui/core</code></li><br>
 
 Autolink dependencies with the following command:<br>
-<li><code>cd ios && pod install</code></li>
+<li><code>cd ios && pod install</code></li><br>
 
 You are now ready to start using the first iteration of freeAGENT.<br>
 
