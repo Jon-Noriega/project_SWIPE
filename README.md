@@ -63,13 +63,13 @@ You are now ready to start using the first iteration of freeAGENT.<br>
 
 <h2>Instructions</h2>
 <ol>
- <li>Sign in on the Home page with your username.</li>
- <li>Begin texting your friends by keying your message within the "text message" input field.</li>
- <li>Organize an event by clicking on the on the "event" modal button.</li>
- <li>Within the event message form, enter in your three event details: 1. Event Name 2. Meetup Location 3. Departure Time.</li>
- <li>Share your event with friends by clicking on "Submit".</li>
- <li>On the receiving end of a shared event message? Click on the flashing event message to join, before the timer expires.</li>
-
+ <li>Sign into the app with your username and password.</li>
+ <li>Don't have an account? Click on the "Create Account" button and submit your profile information.</li>
+ <li>You will be redirected to the Homepage upon succesful sign in / account creation.</li>
+ <li>You are now authorized and free to explore our talent community.</li>
+ <li>Add candidates to your list of Favorites by either swiping right on their profile card or clicking on the Favorite button.</li>
+ <li>You may also choose to pass on a particular candidate by either swiping left on their profile card or clicking on the Pass button.</li>
+ <li>Review your list of Favorite candidates by swiping right on the homepage screen or selecting the "Favorites" tab.</li>
 </ol>
 
 <h2>Code Examples</h2>
