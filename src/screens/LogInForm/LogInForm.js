@@ -11,6 +11,7 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
     
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [alertColor, setAlertColor] = useState("")
 
     const logIn = () => {    
         return fetch(loginURL, {
@@ -24,10 +25,12 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
             .then(response => {
                 if(response.errors){
                     setAlerts(response.errors)
+                    setAlertColor("red")
                 } else {
                     AsyncStorage.setItem("token", response.token)
                     setUser(response.user),
                     setFavorite(response.friends),
+                    setAlertColor("black")
                     setAlerts(["Happy Swiping!"]),
                     setTimeout(() => navigation.navigate("Home"), 1200)  
                 }
@@ -38,14 +41,14 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
     const handleSignIn = () => {
         logIn()
     }
-    
+
     const showAlerts = () => (
         alerts.map(alert =>
             <HelperText
                 style={{fontFamily: "Roboto-Italic",
                     fontSize: 20,
                     fontWeight: "600",
-                    color: "black"
+                    color: alertColor
                 }}
                 type="error">{alert}
             </HelperText>)

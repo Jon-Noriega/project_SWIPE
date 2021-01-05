@@ -62,7 +62,6 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                     ref={swiperRef}
                     animateCardOpacity
                     cards={users}
-                    // renderCard={() => <MarketplaceCardImage card={users[index]} />}  
                     renderCard={card => <MarketplaceCardImage card={card} />}
                     cardIndex={index}
                     backgroundColor="whitesmoke"
@@ -93,7 +92,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
                             },
                         },
                     }}
-                    />
+                />
             </View>
 
             <View style={styles.cardDetailsContainer}>
@@ -127,3 +126,5 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
 }
 
 export default Marketplace
+
+// renderCard={() => <MarketplaceCardImage card={users[index]} />}  
