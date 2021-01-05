@@ -65,7 +65,7 @@ You are now ready to start using the first iteration of freeAGENT.<br>
 <ol>
  <li>Sign into the app with your username and password.</li>
  <li>Don't have an account? Click on the "Create Account" button and submit your profile information.</li>
- <li>You will be redirected to the Homepage upon succesful sign in / account creation.</li>
+ <li>You will be redirected to the Homepage upon successful sign in / account creation.</li>
  <li>You are now authorized and free to explore our talent community.</li>
  <li>Add candidates to your list of Favorites by either swiping right on their profile card or clicking on the Favorite button.</li>
  <li>You may also choose to pass on a particular candidate by either swiping left on their profile card or clicking on the Pass button.</li>
