@@ -36,9 +36,10 @@ My inspiration for this project came about early days pandemic (April 2020). Wit
 <h2>Setup</h2>
 To run this project, create a folder on your local environment where you can clone the "project_SWIPE" GitHub repository. Open this repository in your code editor.<br><br>
 
-Start the app build and run the application with the following commands:<br>
+From the root of your project folder, start the app build and run the application with the following commands:<br>
 <li><code>npx react-native start</code></li>
-<li><code>npx react-native run-ios</code></li><br>
+<li><code>npx react-native run-ios</code></li>
+<li><code>rails s</code></li><br>
 
 Refer to the below if you need to install any libraries or autolink dependencies.<br>
 
