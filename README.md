@@ -3,7 +3,7 @@ freeAGENT was designed to get friends together in short order. We are an event-b
 <br></br>
 <h2>General Info</h2>
 <p>
-We strive to connect friends through a real-time, bidirectional, event-based messaging platform. Don't wait too long though, you might miss your opportunity to join in on the fun if you dont click before the event message disappears.
+We strive to connect friends through a real-time, bidirectional, event-based messaging platform. Don't wait too long though, you might miss your opportunity to join in on the fun if you don't click before the event message disappears.
 
 :blue_heart:
 </p>
