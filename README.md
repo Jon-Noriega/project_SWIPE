@@ -34,17 +34,31 @@ My inspiration for this project came about early days pandemic (April 2020). Wit
 </ul>
 
 <h2>Setup</h2>
-To run this project, create a folder on your local environment where you can clone the "project_GHOST" GitHub repository. Open this repository in your code editor.<br><br>
-From your backend folder perform the following commands:<br>
-<li><code>npm init -y</code></li>
-<li><code>npm install express</code></li>
-<li><code>npm install socket.io</code></li>
-<li><code>npm i -g http-server</code></li>
-<li><code>node index.js</code></li><br>
-From your frontend folder perform the following commands:<br>
-<li><code>npm i socket.io-client</code></li>
-<li><code>npm start</code></li><br>
-You are now ready to start using the first iteration of swiftly.<br>
+To run this project, create a folder on your local environment where you can clone the "project_SWIPE" GitHub repository. Open this repository in your code editor.<br><br>
+
+Start the app build and run the application with the following commands:<br>
+<li><code>npx react-native start</code></li>
+<li><code>npx react-native run-ios</code></li><br>
+
+Refer to the below if you need to install any libraries or autolink dependencies.
+
+Initiate a new React Native CLI project with the following command:<br>
+<li><code>npx react-native init freeAGENT</code></li>
+
+Install the following libraries:<br>
+<li><code>npm i react-native-deck-swiper</code></li>
+<li><code>npm i react-native-view-overflow</code></li>
+<li><code>npm i react-native-vector-icons</code></li>
+<li><code>npm i react-native-reanimated</code></li>
+<li><code>npm i @react-navigation/native</code></li>
+<li><code>npm i @react-native-async-storage/async-storage</code></li>
+<li><code>npm i react-native-paper</code></li>
+<li><code>npm i @material-ui/core</code></li>
+
+Autolink dependencies with the following command:<br>
+<li><code>cd ios && pod install</code></li>
+
+You are now ready to start using the first iteration of freeAGENT.<br>
 
 <h2>Instructions</h2>
 <ol>
