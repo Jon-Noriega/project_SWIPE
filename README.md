@@ -1,7 +1,6 @@
 <h1>freeAGENT</h1>
 freeAGENT was designed to get friends together in short order. We are an event-based instant messaging app. Event messages come equipped with built-in countdown timers. If you really want to join in on the event then you have to act fast before the event disappears.
 :blue_heart:
-<br></br>
 
 <h2>Inspiration</h2>
 
