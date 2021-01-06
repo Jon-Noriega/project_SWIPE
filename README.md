@@ -146,6 +146,9 @@ const onSwipedRight = () => {
 }
 ```
 
+<h2>App Demo</h2>
+<a href="https://www.loom.com/share/7b00d48371ed42f1b62987de33b3f34b?sharedAppSource=personal_library">:movie_camera:</a>
+
 <h2>Status</h2>
 
 We're looking forward to rolling-out the following feature:
