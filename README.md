@@ -68,7 +68,7 @@ You are now ready to start using the first iteration of freeAGENT.<br>
 
 
 ![freeAGENT_Sign-In](https://user-images.githubusercontent.com/68958970/103901835-aa408080-50c7-11eb-9ab8-f4eee8ce0d30.gif)
-
+![freeAGENT_Favorite](https://user-images.githubusercontent.com/68958970/103902735-f2ac6e00-50c8-11eb-97ce-9e141d879c47.gif)
 ![freeAGENT_Pass](https://user-images.githubusercontent.com/68958970/103902203-2f2b9a00-50c8-11eb-9a69-d00de7625099.gif)
 
 
