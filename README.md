@@ -1,5 +1,6 @@
 <h1>freeAGENT</h1>
-freeAGENT was designed to get friends together in short order. We are an event-based instant messaging app. Event messages come equipped with built-in countdown timers. If you really want to join in on the event then you have to act fast before the event disappears.
+freeAGENT was designed to reinvigorate the job search process. Networking can at times feel intimidating and a bit too formal.
+I’ve decided to take this opportunity to break the ice between recruiters & job candidates.
 :blue_heart:
 
 <h2>Inspiration</h2>
