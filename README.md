@@ -1,17 +1,11 @@
 <h1>freeAGENT</h1>
 freeAGENT was designed to get friends together in short order. We are an event-based instant messaging app. Event messages come equipped with built-in countdown timers. If you really want to join in on the event then you have to act fast before the event disappears.
-<br></br>
-<h2>General Info</h2>
-<p>
-We strive to connect friends through a real-time, bidirectional, event-based messaging platform. Don't wait too long though, you might miss your opportunity to join in on the fun if you don't click before the event message disappears.
-
 :blue_heart:
-</p>
 
 <h2>Inspiration</h2>
 
 <p>
-My inspiration for this project came about early days pandemic (April 2020). With lock-down restrictions easing in Denver, our friend group was eager to get out for bike rides through the city. We were missing: eachother, being outdoors, and the freedom that comes with being on your wheels. So we began messaging about daily bike rides but it was hard to rally the whole group for a set time. Often times we wouldn't hear from everyone until late afternoon, at which point some early commits had already backed out of the ride. What if there was a way to facilitate more timely responses from all groups members? Cue up disappearing event messages! The core feature of swiftly was born.
+My inspiration for this project comes entirely from my passion to foster connection and empower people.
 </p>
 
 <h2>Technologies</h2>
@@ -146,10 +140,13 @@ const onSwipedRight = () => {
 }
 ```
 
+<h2>App Demo</h2>
+<a href="https://www.loom.com/share/7b00d48371ed42f1b62987de33b3f34b?sharedAppSource=personal_library">:movie_camera:</a>
+
 <h2>Status</h2>
 
 We're looking forward to rolling-out the following feature:
-<li>An "Event Summary Card" to display after the event message expires. The event summary card will include the details of the event and a list of members who clicked to join.</li>
+<li>Integration of a Messaging platform.</li>
 
 <h2>Contact</h2>
 <a href="https://www.linkedin.com/in/jonathannoriega/"><img src="https://user-images.githubusercontent.com/68958970/94946276-dc7b8a00-04a9-11eb-9431-366689b9fa06.png" alt="Jon Noriega" style="width:10px;height:10px;"></a>Jon Noriega :ocean:<br>
