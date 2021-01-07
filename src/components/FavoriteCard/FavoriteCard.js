@@ -64,7 +64,6 @@ const FavoriteCard = ({ favorite }) => {
                         style={{
                             fontFamily: 'Roboto-Regular',
                             fontSize: 20,
-                            color: "black",
                             shadowColor: "black",
                             shadowOffset: {
                                 width: 0,
@@ -74,6 +73,7 @@ const FavoriteCard = ({ favorite }) => {
                             shadowOpacity: 0.3,
                             elevation: 2,
                         }}
+                        color="#c9a202"
                         visible={visible}
                         onPress={() => setVisible(false)}
                     >      Direct Message
@@ -83,7 +83,6 @@ const FavoriteCard = ({ favorite }) => {
                         style={{
                             fontFamily: 'Roboto-Regular',
                             fontSize: 20,
-                            color: "black",
                             shadowColor: "black",
                             shadowOffset: {
                                 width: 0,
@@ -93,6 +92,7 @@ const FavoriteCard = ({ favorite }) => {
                             shadowOpacity: 0.3,
                             elevation: 2,
                         }}
+                        color="#c9a202"
                         visible={visible}
                         onPress={() => setVisible(false)}
                     >

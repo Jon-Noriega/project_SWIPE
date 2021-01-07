@@ -143,7 +143,7 @@ const App = () => {
                   headerStyle: {
                     backgroundColor: 'whitesmoke',
                   },
-                  headerTitleStyle: {
+                  headerTitleStyle: { 
                     fontFamily: "Caveat-Bold",
                     fontSize: 40,
                     paddingHorizontal: 30
