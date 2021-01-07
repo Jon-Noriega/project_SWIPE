@@ -62,7 +62,7 @@ You are now ready to start using the first iteration of freeAGENT.<br>
  <li>You will be redirected to the Homepage upon successful sign in / account creation.</li>
  ![]freeAGENT_Sign-In.gif<br>
  <iframe src="https://giphy.com/embed/s378Okmk3MEZSAe6y6" width="243" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/s378Okmk3MEZSAe6y6">via GIPHY</a></p><br>
- <a href="https://media.giphy.com/media/s378Okmk3MEZSAe6y6/giphy.gif">:movie_camera:</a><br>
+ <a href="https://media.giphy.com/media/s378Okmk3MEZSAe6y6/giphy.gif"></a><br>
  <li>You are now authorized and free to explore our talent community.</li>
  <li>Add candidates to your list of Favorites by either swiping right on their profile card or clicking on the Favorite button.</li>
  <li>You may also choose to pass on a particular candidate by either swiping left on their profile card or clicking on the Pass button.</li>
