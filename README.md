@@ -67,8 +67,8 @@ You are now ready to start using the first iteration of freeAGENT.<br>
 </ol>
 
 
-![freeAGENT_Sign-In](https://user-images.githubusercontent.com/68958970/103901835-aa408080-50c7-11eb-9ab8-f4eee8ce0d30.gif)
-![freeAGENT_Favorite](https://user-images.githubusercontent.com/68958970/103902735-f2ac6e00-50c8-11eb-97ce-9e141d879c47.gif)
+![freeAGENT_Sign-In](https://user-images.githubusercontent.com/68958970/103901835-aa408080-50c7-11eb-9ab8-f4eee8ce0d30.gif)<br>
+![freeAGENT_Favorite](https://user-images.githubusercontent.com/68958970/103902735-f2ac6e00-50c8-11eb-97ce-9e141d879c47.gif)<br>
 ![freeAGENT_Pass](https://user-images.githubusercontent.com/68958970/103902203-2f2b9a00-50c8-11eb-9a69-d00de7625099.gif)
 
 
@@ -146,7 +146,7 @@ const onSwipedRight = () => {
 }
 ```
 
-<h2>App Demo</h2>
+<h2>Live Demo</h2>
 <a href="https://www.loom.com/share/7b00d48371ed42f1b62987de33b3f34b?sharedAppSource=personal_library">:movie_camera:</a>
 
 <h2>Status</h2>
