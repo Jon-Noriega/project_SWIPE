@@ -23,22 +23,24 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
     }
 
     const onSwipedRight = () => {
-        setFavorite([...favorites, users[index]])
+        if(!favorites.find(fav => fav.id === users[index].id)){
+            setFavorite([...favorites, users[index]])
 
-        AsyncStorage.getItem("token")
-            .then(token => {
-                fetch(favoritesURL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    },
-                    body: JSON.stringify({
-                        user_id: user.id,
-                        friend_id: users[index].id
+            AsyncStorage.getItem("token")
+                .then(token => {
+                    fetch(favoritesURL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            user_id: user.id,
+                            friend_id: users[index].id
+                        })
                     })
                 })
-            })
+            }        
     }
     
     const ANIMATION_DURATION = 200
