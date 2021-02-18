@@ -12,7 +12,7 @@ const MarketplaceCardDetails = ({ users, index }) => {
             <Text style={[styles.description]}>{users[index].description}</Text>
             <Text style={[styles.project]}>Capstone: {users[index].project}</Text>
         </View>
-
-)}
+    )
+}
 
 export default MarketplaceCardDetails

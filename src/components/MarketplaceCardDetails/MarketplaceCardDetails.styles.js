@@ -8,18 +8,21 @@ export default StyleSheet.create({
         fontFamily: 'Caveat-Bold',
         fontSize: 45,
         color: "#0048e8",
-        marginBottom: 5
+        marginBottom: 5,
+        marginLeft: 10
     },
     description: {
         fontFamily: 'Roboto-Regular',
         fontSize: 20,
         color: "black",
-        marginBottom: 10
+        marginBottom: 10,
+        marginLeft: 15
     },
     project: {
         fontFamily: 'Roboto-Medium',
         fontSize: 20,
         color: "black",
-        marginBottom: 10
+        marginBottom: 10,
+        marginLeft: 15
     }
 })

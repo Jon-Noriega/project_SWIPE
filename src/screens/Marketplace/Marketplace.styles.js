@@ -17,7 +17,8 @@ export default StyleSheet.create({
         flex: 1,
         position: "absolute",
         bottom: 90,
-        alignSelf: "center"
+        alignSelf: "flex-start",
+        marginLeft: 20
     },
     buttonsContainer: {
         position: "absolute",

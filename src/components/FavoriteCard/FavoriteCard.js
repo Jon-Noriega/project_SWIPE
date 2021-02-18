@@ -1,9 +1,7 @@
 <script src="http://localhost:8097"></script>
 
 import React, { useState } from 'react'
-import { View, Image } from "react-native"
-import { Card, Headline, Title, Subheading, Paragraph, Caption, Button, Banner } from "react-native-paper"
-import styles from './FavoriteCard.styles'
+import { Card, Headline, Subheading, Paragraph, Button } from "react-native-paper"
 
 const FavoriteCard = ({ favorite }) => {
     const [visible, setVisible] = useState(true)
@@ -23,7 +21,7 @@ const FavoriteCard = ({ favorite }) => {
                     height: 500,
                     borderRadius: 8
                 }}
-                />
+            />
 
             <Headline
                 style={{ 
@@ -31,8 +29,10 @@ const FavoriteCard = ({ favorite }) => {
                     fontSize: 40,
                     fontWeight: "700",
                     color: "#0048e8",
-                    paddingTop: 20
-                }}>
+                    paddingTop: 20,
+                    marginLeft: 10
+                }}
+            >
                     {favorite.name}
             </Headline>
 
@@ -40,7 +40,8 @@ const FavoriteCard = ({ favorite }) => {
                 style={{
                     fontFamily: 'Roboto-Regular',
                     fontSize: 18,
-                    color: "black"
+                    color: "black",
+                    marginLeft: 15
                 }}
             >
                     {favorite.description}
@@ -51,7 +52,8 @@ const FavoriteCard = ({ favorite }) => {
                     fontFamily: 'Roboto-Regular',
                     fontSize: 18,
                     fontWeight: "500",
-                    color: "black"
+                    color: "black",
+                    marginLeft: 15
                 }}
             >
                     Capstone: {favorite.project}
@@ -76,7 +78,7 @@ const FavoriteCard = ({ favorite }) => {
                         color="#c9a202"
                         visible={visible}
                         onPress={() => setVisible(false)}
-                    >      Direct Message
+                    >   Direct Message
                     </Button>
 
                     <Button
@@ -96,7 +98,7 @@ const FavoriteCard = ({ favorite }) => {
                         visible={visible}
                         onPress={() => setVisible(false)}
                     >
-                        |   Share Profile
+                        |    Remove Favorite
                     </Button>
 
                 </Card.Actions>
