@@ -56,6 +56,7 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
                         {(props) => <Favorites
                             {...props}
                             favorites={favorites}
+                            setFavorite={setFavorite}
                             />
                         }
                     </Tab.Screen>

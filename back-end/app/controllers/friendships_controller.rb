@@ -24,5 +24,12 @@ class FriendshipsController < ApplicationController
     
         redirect_to users_path
     end
+
+    def destroy
+        @friendship.destroy
+
+        render status: :no_content
+
+    end
     
 end
