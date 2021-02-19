@@ -5,13 +5,13 @@ class UsersController < ApplicationController
     def index
         @users = User.all
 
-        render json: @users, include: [:friends]
+        render json: @users, include: {:friendships => {include: :friend, only: [:id]}}
     end
 
     def show
         @user = User.find(params[:id])
 
-        render json: @user, include: [:friends]
+        render json: @user, include: {:friendships => {include: :friend, only: [:id]}}
     end
 
     def profile

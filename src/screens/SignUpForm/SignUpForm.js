@@ -56,6 +56,7 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
         accent: '#e0b402',
         },
     };
+    
     const containerStyle = {backgroundColor: 'whitesmoke', padding: 20, margin: 20, borderRadius: 8 };
     
     return (

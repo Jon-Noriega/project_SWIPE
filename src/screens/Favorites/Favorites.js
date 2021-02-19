@@ -3,11 +3,11 @@
 import React, { useState } from 'react'
 import { SafeAreaView, ScrollView } from 'react-native'
 import { FavoriteCard } from '../../components/index'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+// import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const favoritesURL = "http://localhost:3000/friendships/"
+// const favoritesURL = "http://localhost:3000/friendships/"
 
-const Favorites = ({ favorites, setFavorite }) => {
+const Favorites = ({ favorites, removeFavorite }) => {
     
     // const [visible, setVisible] = useState(true)
     
@@ -19,23 +19,23 @@ const Favorites = ({ favorites, setFavorite }) => {
         })
     }
 
-    const removeFavorite = (favorite, key) => {
+    // const removeFavorite = (favorite, key) => {
         
-        AsyncStorage.getItem("token")
-        .then(token => {
-            fetch(`favoritesURL${key}`, {
-                method: "DELETE",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            })
-        })
+    //     AsyncStorage.getItem("token")
+    //     .then(token => {
+    //         fetch(`favoritesURL${key}`, {
+    //             method: "DELETE",
+    //             headers: {
+    //                 "Authorization": `Bearer ${token}`
+    //             }
+    //         })
+    //     })
         
-        // setVisible(false)
+    //     setVisible(false)
 
-        let newFavorites = favorites.filter(fav => fav.id !== favorite.id)
-        return setFavorite([newFavorites])
-    }
+    //     let newFavorites = favorites.filter(fav => fav.id !== favorite.id)
+    //     return setFavorite([newFavorites])
+    // }
 
     return (
         <SafeAreaView>

@@ -9,7 +9,7 @@ import { Caption, Button } from "react-native-paper"
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
+const Home = ({ user, users, favorites, setUser, setFavorite, removeFavorite, navigation }) => {
 
     const Tab = createMaterialTopTabNavigator()
 
@@ -57,6 +57,7 @@ const Home = ({ user, users, favorites, setUser, setFavorite, navigation }) => {
                             {...props}
                             favorites={favorites}
                             setFavorite={setFavorite}
+                            removeFavorite={removeFavorite}
                             />
                         }
                     </Tab.Screen>

@@ -10,6 +10,7 @@ import { Title, Subheading, Paragraph, Caption } from "react-native-paper"
 import styles from './App.styles';
 
 const usersURL = "http://localhost:3000/users/"
+const favoritesURL = "http://localhost:3000/friendships/"
 
 const App = () => {
   LogBox.ignoreAllLogs()
@@ -68,10 +69,28 @@ const App = () => {
             AsyncStorage.setItem("token", response.token)
             setUser(response.user),
             setAlerts(["User successsfully created!"]),
-            setFavorite(response.friends)
+            setFavorite(response.friendships)
           }
         })
   }
+
+  const removeFavorite = (favorite, key) => {
+        
+    AsyncStorage.getItem("token")
+    .then(token => {
+        fetch(`favoritesURL${key}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+    })
+    
+    // setVisible(false)
+
+    let newFavorites = favorites.filter(fav => fav.id !== favorite.id)
+    return setFavorite([newFavorites])
+}
 
   return (
       <NavigationContainer>
@@ -159,6 +178,7 @@ const App = () => {
                     setUser={setUser}
                     favorites={favorites}
                     setFavorite={setFavorite}
+                    removeFavorite={removeFavorite}
                     />
                   }
             </Stack.Screen>

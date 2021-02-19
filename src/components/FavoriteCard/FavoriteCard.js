@@ -8,6 +8,7 @@ const FavoriteCard = ({ favorite, key, removeFavorite }) => {
     const [visible, setVisible] = useState(true)
 
     const handleClick = () => {
+        // console.log("Remove Favorite Test", removeFavorite(favorite,key))
         return removeFavorite(favorite, key)
     }
 

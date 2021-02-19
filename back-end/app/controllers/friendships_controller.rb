@@ -1,5 +1,11 @@
 class FriendshipsController < ApplicationController
 
+    def show
+    @friendship = Friendship.find(params[:id])
+
+    render json: @friendship
+    end
+    
     def index
         @friendships = Friendship.all
 
@@ -26,10 +32,10 @@ class FriendshipsController < ApplicationController
     end
 
     def destroy
+        @friendship = Friendship.find(params[:id])
         @friendship.destroy
 
-        render status: :no_content
-
+        render json: {"message": "Removed from Favorites."}
     end
     
 end
