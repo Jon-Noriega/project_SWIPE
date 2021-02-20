@@ -3,13 +3,12 @@
 import React, { useState } from 'react'
 import { Card, Headline, Subheading, Paragraph, Button } from "react-native-paper"
 
-const FavoriteCard = ({ favorite, key, removeFavorite }) => {
+const FavoriteCard = ({ user, key, removeFavorite }) => {
 
     const [visible, setVisible] = useState(true)
 
     const handleClick = () => {
-        // console.log("Remove Favorite Test", removeFavorite(favorite,key))
-        return removeFavorite(favorite, key)
+        return removeFavorite(user, key)
     }
 
     return (
@@ -20,7 +19,7 @@ const FavoriteCard = ({ favorite, key, removeFavorite }) => {
             <Card.Content>
 
                 <Card.Cover
-                    source={{ uri: favorite.photo }}
+                    source={{ uri: user.photo }}
                     resizeMode="cover"
 
                     style={{
@@ -39,7 +38,7 @@ const FavoriteCard = ({ favorite, key, removeFavorite }) => {
                         marginLeft: 10
                     }}
                 >
-                        {favorite.name}
+                        {user.name}
                 </Headline>
 
                 <Paragraph
@@ -50,7 +49,7 @@ const FavoriteCard = ({ favorite, key, removeFavorite }) => {
                         marginLeft: 15
                     }}
                 >
-                        {favorite.description}
+                        {user.description}
                 </Paragraph>
 
                 <Subheading
@@ -62,7 +61,7 @@ const FavoriteCard = ({ favorite, key, removeFavorite }) => {
                         marginLeft: 15
                     }}
                 >
-                        Capstone: {favorite.project}
+                        Capstone: {user.project}
                 </Subheading>
 
                 <Card.Actions

@@ -3,13 +3,14 @@ class FriendshipsController < ApplicationController
     def show
     @friendship = Friendship.find(params[:id])
 
-    render json: @friendship
+    render json: @friendship, include: [:friend]
     end
     
     def index
         @friendships = Friendship.all
 
         render json: @friendships, include: [:friend]
+        # render json: @friendships
     end
     
     def create

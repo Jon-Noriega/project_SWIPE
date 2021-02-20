@@ -10,7 +10,7 @@ import styles from './Marketplace.styles'
 
 const favoritesURL = "http://localhost:3000/friendships/"
 
-const Marketplace = ({ user, users, favorites, setFavorite }) => {
+const Marketplace = ({ user, users, favorites, setFavorites }) => {
     
     const [index, setIndex] = useState(0)
 
@@ -24,7 +24,7 @@ const Marketplace = ({ user, users, favorites, setFavorite }) => {
 
     const onSwipedRight = () => {
         if(!favorites.find(fav => fav.id === users[index].id)){
-            setFavorite([...favorites, users[index]])
+            setFavorites([...favorites, users[index]])
 
             AsyncStorage.getItem("token")
                 .then(token => {

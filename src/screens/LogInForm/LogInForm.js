@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const loginURL = "http://localhost:3000/login/"
 
-const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigation }) => {
+const LogInForm = ({ alerts, setUser, setFavorites, setAlerts, getUsers, navigation }) => {
     
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -23,13 +23,15 @@ const LogInForm = ({ alerts, setUser, setFavorite, setAlerts, getUsers, navigati
         })
             .then(response => response.json())
             .then(response => {
+                // console.log("TEST 2 - Login", response)
                 if(response.errors){
                     setAlerts(response.errors)
                     setAlertColor("red")
                 } else {
                     AsyncStorage.setItem("token", response.token)
                     setUser(response.user),
-                    setFavorite(response.friends),
+                    // setFavorites(response.friends),
+                    setFavorites(response.friendships),
                     setAlertColor("black")
                     setAlerts(["Happy Swiping!"]),
                     setTimeout(() => navigation.navigate("Home"), 1200)  

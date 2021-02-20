@@ -1,41 +1,30 @@
 <script src="http://localhost:8097"></script>
 
-import React, { useState } from 'react'
+import React from 'react'
 import { SafeAreaView, ScrollView } from 'react-native'
 import { FavoriteCard } from '../../components/index'
-// import AsyncStorage from '@react-native-async-storage/async-storage'
 
-// const favoritesURL = "http://localhost:3000/friendships/"
-
-const Favorites = ({ favorites, removeFavorite }) => {
+const Favorites = ({ user, users, favorites, removeFavorite }) => {
     
-    // const [visible, setVisible] = useState(true)
-    
-    const renderFriendships = () => {
-        return favorites.map(favorite => {
-            return (
-                <FavoriteCard favorite={favorite} key={favorite.id} removeFavorite={removeFavorite}/>
-            )
-        })
-    }
-
-    // const removeFavorite = (favorite, key) => {
+    // const renderFriendships = () => {
         
-    //     AsyncStorage.getItem("token")
-    //     .then(token => {
-    //         fetch(`favoritesURL${key}`, {
-    //             method: "DELETE",
-    //             headers: {
-    //                 "Authorization": `Bearer ${token}`
-    //             }
-    //         })
+    //     return favorites.map(favorite => {
+    //         console.log("TEST 5 - Friendships Map", favorite)
+    //         return (
+    //             <FavoriteCard favorite={favorite} key={favorite.id}/>
+    //         )
     //     })
-        
-    //     setVisible(false)
-
-    //     let newFavorites = favorites.filter(fav => fav.id !== favorite.id)
-    //     return setFavorite([newFavorites])
     // }
+
+    const renderFriendships = (current) => {
+        users.filter(user => user === current)
+        console.log("TEST 5 - User Map", user)
+                // users.map(user => {
+                //     return (
+                //         <FavoriteCard user={user} key={user.id} removeFavorite={removeFavorite}/>
+                //     )
+                // })
+    }
 
     return (
         <SafeAreaView>

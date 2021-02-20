@@ -9,14 +9,14 @@ import { Caption, Button } from "react-native-paper"
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-const Home = ({ user, users, favorites, setUser, setFavorite, removeFavorite, navigation }) => {
+const Home = ({ user, users, favorites, setUser, setFavorites, removeFavorite, navigation }) => {
 
     const Tab = createMaterialTopTabNavigator()
 
     const handleLogout = () => {
         navigation.navigate("Log In")
         setUser({})
-        setFavorite([])
+        setFavorites([])
     }
 
     return (
@@ -42,7 +42,7 @@ const Home = ({ user, users, favorites, setUser, setFavorite, removeFavorite, na
                             user={user}
                             users={users}
                             favorites={favorites}
-                            setFavorite={setFavorite}
+                            setFavorites={setFavorites}
                             />
                         }
                     </Tab.Screen>
@@ -55,8 +55,10 @@ const Home = ({ user, users, favorites, setUser, setFavorite, removeFavorite, na
                     >
                         {(props) => <Favorites
                             {...props}
+                            user={user}
+                            users={users}
                             favorites={favorites}
-                            setFavorite={setFavorite}
+                            // setFavorites={setFavorites}
                             removeFavorite={removeFavorite}
                             />
                         }

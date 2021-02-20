@@ -6,11 +6,9 @@ import { LogInForm, SignUpForm, Home } from './src/screens/index';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Title, Subheading, Paragraph, Caption } from "react-native-paper"
-import styles from './App.styles';
 
-const usersURL = "http://localhost:3000/users/"
-const favoritesURL = "http://localhost:3000/friendships/"
+const usersURL = "http://localhost:3000/users/";
+const favoritesURL = "http://localhost:3000/friendships/";
 
 const App = () => {
   LogBox.ignoreAllLogs()
@@ -18,63 +16,53 @@ const App = () => {
   const Stack = createStackNavigator()
   
   const [users, setUsers] = useState([])
-  const [favorites, setFavorite] = useState([])
+  const [favorites, setFavorites] = useState([])
   const [user, setUser] = useState({})
   const [alerts, setAlerts] = useState([])
   
   useEffect(() => AsyncStorage.clear(), [])
-
-  useEffect(() => {
-    AsyncStorage.getItem("token")
-      .then(token => {
-        fetch(usersURL, {
-          method: "GET",
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
-        })
-          .then(response => response.json())
-          .then(users => setUsers(users))
-      })
-  }, [])
   
   const getUsers = () => {
-    AsyncStorage.getItem("token")
-      .then(token => {
-        fetch(usersURL, {
-            method: "GET",
-            headers: {
-            "Authorization": `Bearer ${token}`
-            }
-        })
-            .then(response => response.json())
-            .then(users => setUsers(users))
-        })
-  }
 
+    AsyncStorage.getItem("token")
+    .then(token => {
+      fetch(usersURL, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
+      .then(response => response.json())
+      .then(users => setUsers(users))
+      // console.log(users, "TEST 0 - getUsers")
+    })
+  }
+  
   const signUp = (user) => {
+
     return fetch(usersURL, {
       method: "POST",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ user })
     })
-        .then(response => response.json())
-        .then(response => {
-          if(response.errors){
-            setAlerts(response.errors)
-          }
-          else {
+    .then(response => response.json())
+    .then(response => {
+      if(response.errors){
+        setAlerts(response.errors)
+      }
+      else {
             AsyncStorage.setItem("token", response.token)
             setUser(response.user),
             setAlerts(["User successsfully created!"]),
-            setFavorite(response.friendships)
+            // setFavorites(response.friends)
+            setFavorites(response.friendships.friend)
           }
         })
   }
 
-  const removeFavorite = (favorite, key) => {
+  const removeFavorite = (user, key) => {
         
     AsyncStorage.getItem("token")
     .then(token => {
@@ -85,11 +73,9 @@ const App = () => {
             }
         })
     })
-    
-    // setVisible(false)
 
     let newFavorites = favorites.filter(fav => fav.id !== favorite.id)
-    return setFavorite([newFavorites])
+    return setFavorites([newFavorites])
 }
 
   return (
@@ -121,7 +107,7 @@ const App = () => {
                     setUser={setUser}
                     setUsers={setUsers}
                     getUsers={getUsers}
-                    setFavorite={setFavorite}
+                    setFavorites={setFavorites}
                     alerts={alerts}
                     setAlerts={setAlerts}
                     />
@@ -177,7 +163,7 @@ const App = () => {
                     users={users}
                     setUser={setUser}
                     favorites={favorites}
-                    setFavorite={setFavorite}
+                    setFavorites={setFavorites}
                     removeFavorite={removeFavorite}
                     />
                   }
