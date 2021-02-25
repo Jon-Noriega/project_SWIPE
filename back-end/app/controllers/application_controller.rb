@@ -29,8 +29,13 @@ class ApplicationController < ActionController::API
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             @token = JWT.encode({ user_id: @user.id }, Rails.application.secret_key_base)
+            # byebug
             # render json: {user: @user, friends: @user.friends, token: @token}, status: :accepted
-            render json: {user: @user, friendships: @user.friendships, token: @token}, status: :accepted
+            render json: {
+                user: @user,
+                friendships: @user.friendships.as_json(include: :friend, only: :id),
+                token: @token
+            }, status: :accepted
         else
             render json: {errors: ["Invalid username or password"]}, status: :unauthorized
         end

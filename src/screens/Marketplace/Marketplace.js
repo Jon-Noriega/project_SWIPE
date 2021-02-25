@@ -22,6 +22,8 @@ const Marketplace = ({ user, users, favorites, setFavorites }) => {
         setIndex((index + 1) % users.length)
     }
 
+    console.log("TEST 5: Markeplace", users)
+    
     const onSwipedRight = () => {
         if(!favorites.find(fav => fav.id === users[index].id)){
             setFavorites([...favorites, users[index]])

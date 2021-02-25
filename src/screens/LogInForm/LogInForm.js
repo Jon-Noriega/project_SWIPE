@@ -23,18 +23,17 @@ const LogInForm = ({ alerts, setUser, setFavorites, setAlerts, getUsers, navigat
         })
             .then(response => response.json())
             .then(response => {
-                // console.log("TEST 2 - Login", response)
                 if(response.errors){
                     setAlerts(response.errors)
                     setAlertColor("red")
                 } else {
                     AsyncStorage.setItem("token", response.token)
-                    setUser(response.user),
-                    // setFavorites(response.friends),
-                    setFavorites(response.friendships),
+                    setUser(response.user)
+                    setFavorites(response.friendships)
                     setAlertColor("black")
-                    setAlerts(["Happy Swiping!"]),
-                    setTimeout(() => navigation.navigate("Home"), 1200)  
+                    setAlerts(["Happy Swiping!"])
+                    setTimeout(() => navigation.navigate("Home"), 1200)
+                    console.log("TEST 2 - Login", response)
                 }
             })
             .then(() => getUsers())
@@ -158,7 +157,6 @@ const LogInForm = ({ alerts, setUser, setFavorites, setAlerts, getUsers, navigat
             >
 
                 <Button
-                    // onPress={handleCreateAccount}
                     title="Forgot Password?"
                 >
                     <Caption

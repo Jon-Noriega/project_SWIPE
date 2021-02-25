@@ -5,19 +5,17 @@ class UsersController < ApplicationController
     def index
         @users = User.all
 
-        # render json: @users, include: [:friends]
-        render json: @users, include: {:friendships => {include: :friend, only: [:id]}}
+        render json: @users, include: {friendships: {include: :friend, only: :id}}
     end
 
     def show
         @user = User.find(params[:id])
 
-        render json: @user, include: {:friendships => {include: :friend, only: [:id]}}
+        render json: @user, include: {friendships: {include: :friend, only: :id}}
     end
 
     def profile
-        # render json: {user: current_user, friends: current_user.friends}
-        render json: {user: current_user, friendships: current_user.friendships}
+        render json: {user: current_user, friendships: current_user.friends}
     end
 
     def create
@@ -27,7 +25,7 @@ class UsersController < ApplicationController
             @user.save
             @token = JWT.encode({ user_id: @user.id }, Rails.application.secret_key_base)
             # render json: {user: @user, friends: @user.friends, token: @token}, status: :created
-            render json: {user: @user, friendships: @user.friendships, token: @token}, status: :created
+            render json: {user: @user, friendships: @user.friends, token: @token}, status: :created
         else
             render json: {errors: @user.errors.full_messages}, status: :not_acceptable
         end

@@ -3,12 +3,16 @@
 import React, { useState } from 'react'
 import { Card, Headline, Subheading, Paragraph, Button } from "react-native-paper"
 
-const FavoriteCard = ({ user, key, removeFavorite }) => {
+const FavoriteCard = ({ favorite, key, removeFavorite }) => {
+
+    console.log("TEST 4: Favorite", favorite)
 
     const [visible, setVisible] = useState(true)
 
     const handleClick = () => {
-        return removeFavorite(user, key)
+
+        setVisible(false)
+        return removeFavorite(favorite, key)
     }
 
     return (
@@ -19,7 +23,7 @@ const FavoriteCard = ({ user, key, removeFavorite }) => {
             <Card.Content>
 
                 <Card.Cover
-                    source={{ uri: user.photo }}
+                    source={{ uri: favorite.photo }}
                     resizeMode="cover"
 
                     style={{
@@ -38,7 +42,7 @@ const FavoriteCard = ({ user, key, removeFavorite }) => {
                         marginLeft: 10
                     }}
                 >
-                        {user.name}
+                        {favorite.name}
                 </Headline>
 
                 <Paragraph
@@ -49,7 +53,7 @@ const FavoriteCard = ({ user, key, removeFavorite }) => {
                         marginLeft: 15
                     }}
                 >
-                        {user.description}
+                        {favorite.description}
                 </Paragraph>
 
                 <Subheading
@@ -61,7 +65,7 @@ const FavoriteCard = ({ user, key, removeFavorite }) => {
                         marginLeft: 15
                     }}
                 >
-                        Capstone: {user.project}
+                        Capstone: {favorite.project}
                 </Subheading>
 
                 <Card.Actions
@@ -102,7 +106,6 @@ const FavoriteCard = ({ user, key, removeFavorite }) => {
                         color="#c9a202"
                         visible={visible}
                         onPress={handleClick}
-                        // onPress={() => setVisible(false)}
                     >
                         |    Remove Favorite
                     </Button>

@@ -1,16 +1,15 @@
 class FriendshipsController < ApplicationController
 
     def show
-    @friendship = Friendship.find(params[:id])
-
-    render json: @friendship, include: [:friend]
+        @friendship = Friendship.find(params[:id])
+        # byebug
+        render json: @friendship, include: [:friend]
     end
     
     def index
         @friendships = Friendship.all
-
+        # byebug
         render json: @friendships, include: [:friend]
-        # render json: @friendships
     end
     
     def create

@@ -6,7 +6,7 @@ import styles from './MarketplaceCardImage.styles'
 
 const MarketplaceCardImage = ({ card }) => {
 
-    console.log(card, "TEST 1 - MARKETPLACE CARD COMPONENT")
+    console.log("TEST 1 - MARKETPLACE CARD COMPONENT", card)
 
     return (
         <View style={styles.card}>

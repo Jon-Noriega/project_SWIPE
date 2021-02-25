@@ -54,15 +54,15 @@ const App = () => {
       }
       else {
             AsyncStorage.setItem("token", response.token)
-            setUser(response.user),
-            setAlerts(["User successsfully created!"]),
-            // setFavorites(response.friends)
-            setFavorites(response.friendships.friend)
+            setUser(response.user)
+            setAlerts(["User successsfully created!"])
+            setFavorites(response.friendships)
+            console.log("TEST 8: Response", response)
           }
         })
   }
 
-  const removeFavorite = (user, key) => {
+  const removeFavorite = (favorite, key) => {
         
     AsyncStorage.getItem("token")
     .then(token => {
