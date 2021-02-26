@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const usersURL = "http://localhost:3000/users/";
-const favoritesURL = "http://localhost:3000/friendships/";
 
 const App = () => {
   LogBox.ignoreAllLogs()
@@ -19,6 +18,8 @@ const App = () => {
   const [favorites, setFavorites] = useState([])
   const [user, setUser] = useState({})
   const [alerts, setAlerts] = useState([])
+  
+  console.log("TEST 6: App", favorites)
   
   useEffect(() => AsyncStorage.clear(), [])
   
@@ -34,7 +35,6 @@ const App = () => {
       })
       .then(response => response.json())
       .then(users => setUsers(users))
-      // console.log(users, "TEST 0 - getUsers")
     })
   }
   
@@ -57,25 +57,24 @@ const App = () => {
             setUser(response.user)
             setAlerts(["User successsfully created!"])
             setFavorites(response.friendships)
-            console.log("TEST 8: Response", response)
           }
         })
   }
 
-  const removeFavorite = (favorite, key) => {
+  const removeFavorite = (friendshipID) => {
         
     AsyncStorage.getItem("token")
     .then(token => {
-        fetch(`favoritesURL${key}`, {
-            method: "DELETE",
-            headers: {
-                "Authorization": `Bearer ${token}`
-            }
+        fetch(`http://localhost:3000/friendships/${friendshipID}`, {
+          method: "DELETE",
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
         })
     })
 
-    let newFavorites = favorites.filter(fav => fav.id !== favorite.id)
-    return setFavorites([newFavorites])
+    let newFavorites = favorites.filter(favorite => favorite.id !== friendshipID)
+    return setFavorites(newFavorites)
 }
 
   return (

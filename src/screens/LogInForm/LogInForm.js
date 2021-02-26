@@ -33,7 +33,7 @@ const LogInForm = ({ alerts, setUser, setFavorites, setAlerts, getUsers, navigat
                     setAlertColor("black")
                     setAlerts(["Happy Swiping!"])
                     setTimeout(() => navigation.navigate("Home"), 1200)
-                    console.log("TEST 2 - Login", response)
+                    console.log("TEST 5: Login", response.friendships)
                 }
             })
             .then(() => getUsers())

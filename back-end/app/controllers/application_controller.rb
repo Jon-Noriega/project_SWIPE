@@ -4,12 +4,12 @@ class ApplicationController < ActionController::API
     skip_before_action :authorized, only: [:login]
 
     def current_user
+        # byebug
         auth_header = request.headers["Authorization"]
         if auth_header
             token = auth_header.split(" ")[1]
             begin
                 @user_id = JWT.decode(token, Rails.application.secret_key_base)[0]["user_id"]
-                # byebug
             rescue JWT::DecodeError
                 nil
             end
@@ -30,7 +30,6 @@ class ApplicationController < ActionController::API
         if @user && @user.authenticate(params[:password])
             @token = JWT.encode({ user_id: @user.id }, Rails.application.secret_key_base)
             # byebug
-            # render json: {user: @user, friends: @user.friends, token: @token}, status: :accepted
             render json: {
                 user: @user,
                 friendships: @user.friendships.as_json(include: :friend, only: :id),

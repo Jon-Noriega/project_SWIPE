@@ -11,6 +11,8 @@ import styles from './Marketplace.styles'
 const favoritesURL = "http://localhost:3000/friendships/"
 
 const Marketplace = ({ user, users, favorites, setFavorites }) => {
+
+    console.log("TEST 3: Marketplace", favorites)
     
     const [index, setIndex] = useState(0)
 
@@ -21,28 +23,29 @@ const Marketplace = ({ user, users, favorites, setFavorites }) => {
         transitionRef.current.animateNextTransition()
         setIndex((index + 1) % users.length)
     }
-
-    console.log("TEST 5: Markeplace", users)
     
     const onSwipedRight = () => {
-        if(!favorites.find(fav => fav.id === users[index].id)){
-            setFavorites([...favorites, users[index]])
-
+        if(!favorites.find(favorite => favorite["friend"].id === users[index].id)){
+            
             AsyncStorage.getItem("token")
-                .then(token => {
-                    fetch(favoritesURL, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": `Bearer ${token}`
-                        },
-                        body: JSON.stringify({
-                            user_id: user.id,
-                            friend_id: users[index].id
-                        })
+            .then(token => {
+                fetch(favoritesURL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        user_id: user.id,
+                        friend_id: users[index].id
                     })
                 })
-            }        
+                    .then(response => response.json())
+                    .then(friendship => {
+                        setFavorites([...favorites, {id: friendship.id, friend: users[index]} ])
+                    })
+            })
+        }        
     }
     
     const ANIMATION_DURATION = 200
@@ -130,5 +133,3 @@ const Marketplace = ({ user, users, favorites, setFavorites }) => {
 }
 
 export default Marketplace
-
-// renderCard={() => <MarketplaceCardImage card={users[index]} />}  

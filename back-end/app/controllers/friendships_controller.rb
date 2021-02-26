@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
     end
     
     def create
-        Friendship.create(
+        @friendship = Friendship.create(
             user_id: params[:user_id],
             friend_id: params[:friend_id]
         )
@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
         #     friend_id: params[:user_id]
         # )
     
-        redirect_to users_path
+        render json: @friendship
     end
 
     def destroy

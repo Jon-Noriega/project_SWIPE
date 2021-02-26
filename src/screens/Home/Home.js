@@ -11,6 +11,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Home = ({ user, users, favorites, setUser, setFavorites, removeFavorite, navigation }) => {
 
+    console.log("TEST 4: Home", favorites)
+
     const Tab = createMaterialTopTabNavigator()
 
     const handleLogout = () => {
@@ -58,7 +60,6 @@ const Home = ({ user, users, favorites, setUser, setFavorites, removeFavorite, n
                             user={user}
                             users={users}
                             favorites={favorites}
-                            // setFavorites={setFavorites}
                             removeFavorite={removeFavorite}
                             />
                         }

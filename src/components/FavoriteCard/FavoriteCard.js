@@ -3,16 +3,17 @@
 import React, { useState } from 'react'
 import { Card, Headline, Subheading, Paragraph, Button } from "react-native-paper"
 
-const FavoriteCard = ({ favorite, key, removeFavorite }) => {
+const FavoriteCard = ({ favorite, friendshipID, removeFavorite }) => {
 
-    console.log("TEST 4: Favorite", favorite)
+    console.log("TEST 1: FavoriteCard", favorite)
+    console.log("TEST 0: FriendshipID", friendshipID)
 
     const [visible, setVisible] = useState(true)
 
     const handleClick = () => {
 
         setVisible(false)
-        return removeFavorite(favorite, key)
+        return removeFavorite(friendshipID)
     }
 
     return (

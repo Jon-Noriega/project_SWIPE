@@ -24,11 +24,17 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             @token = JWT.encode({ user_id: @user.id }, Rails.application.secret_key_base)
-            # render json: {user: @user, friends: @user.friends, token: @token}, status: :created
             render json: {user: @user, friendships: @user.friends, token: @token}, status: :created
         else
             render json: {errors: @user.errors.full_messages}, status: :not_acceptable
         end
+    end
+
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+
+        render json: {"message": "Account deleted."}
     end
 
     private
