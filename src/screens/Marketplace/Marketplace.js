@@ -29,6 +29,7 @@ const Marketplace = ({ user, users, favorites, setFavorites }) => {
             
             AsyncStorage.getItem("token")
             .then(token => {
+
                 fetch(favoritesURL, {
                     method: "POST",
                     headers: {
@@ -40,6 +41,7 @@ const Marketplace = ({ user, users, favorites, setFavorites }) => {
                         friend_id: users[index].id
                     })
                 })
+
                     .then(response => response.json())
                     .then(friendship => {
                         setFavorites([...favorites, {id: friendship.id, friend: users[index]} ])
