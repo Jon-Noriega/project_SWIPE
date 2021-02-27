@@ -29,14 +29,14 @@ const LogInForm = ({ alerts, setUser, setFavorites, setAlerts, getUsers, navigat
                 } else {
                     AsyncStorage.setItem("token", response.token)
                     setUser(response.user)
+                    getUsers(response.user)
                     setFavorites(response.friendships)
                     setAlertColor("black")
                     setAlerts(["Happy Swiping!"])
                     setTimeout(() => navigation.navigate("Home"), 1200)
-                    console.log("TEST 5: Login", response.friendships)
+                    console.log("TEST 5: Login", response.user.userType)
                 }
             })
-            .then(() => getUsers())
     }
 
     const handleSignIn = () => {

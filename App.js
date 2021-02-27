@@ -19,11 +19,11 @@ const App = () => {
   const [user, setUser] = useState({})
   const [alerts, setAlerts] = useState([])
   
-  console.log("TEST 6: App", favorites)
+  console.log("TEST 6: App", users)
   
   useEffect(() => AsyncStorage.clear(), [])
   
-  const getUsers = () => {
+  const getUsers = (user) => {
 
     AsyncStorage.getItem("token")
     .then(token => {
@@ -34,7 +34,16 @@ const App = () => {
         }
       })
       .then(response => response.json())
-      .then(users => setUsers(users))
+      .then(users => {
+        if(user.userType === "Recruiter"){
+          let candidateCards = users.filter(account => account.userType === "Candidate")
+          setUsers(candidateCards)
+        }
+        else {
+          let recruiterCards = users.filter(account => account.userType === "Recruiter")
+          setUsers(recruiterCards)
+        }
+      })
     })
   }
   
@@ -57,8 +66,8 @@ const App = () => {
             setUser(response.user)
             setAlerts(["User successsfully created!"])
             setFavorites(response.friendships)
-          }
-        })
+      }
+    })
   }
 
   const removeFavorite = (friendshipID) => {
