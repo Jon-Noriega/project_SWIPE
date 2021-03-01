@@ -1,6 +1,6 @@
 <h1>freeAGENT</h1>
 freeAGENT was designed to reinvigorate the job search process. Networking can at times feel intimidating and a bit too formal.
-I’ve decided to take this opportunity to break the ice between recruiters & job candidates.
+I’ve decided to take this opportunity to help break the ice between recruiters & job candidates.
 :blue_heart:
 
 <h2>Inspiration</h2>
