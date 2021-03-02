@@ -2,19 +2,25 @@
 
 import React, { useState } from 'react'
 import { Text } from 'react-native'
-import { Modal, Portal, TextInput, HelperText, Button, Headline, Caption, Provider } from "react-native-paper"
+import { Modal, Portal, TextInput, HelperText, Button, Menu, Divider, Caption, Provider } from "react-native-paper"
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
-    
+
+    const [userType, setUserType] = useState("")
+    const [isOpen, setOpen] = useState(false)
     const [name, setName] = useState("")
     const [photo, setPhoto] = useState("")
     const [description, setDescription] = useState("")
     const [project, setProject] = useState("")
-    const [userType, setUserType] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [visible, setVisible] = useState("")
+
+    const onPressItemHandler = (value) => {
+        setUserType(value);
+        setOpen(false);
+    }
     
     const handleSubmit = () => {
 
@@ -29,7 +35,7 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
         }
 
         signUp(user)
-            .then(() => getUsers())
+            .then(() => getUsers(user))
             .then(navigation.navigate("Home"))
     }
 
@@ -63,6 +69,31 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
             <Provider theme={theme} >
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+                                <Menu
+                                    style={{
+                                        width: 334,
+                                        fontSize: 18,
+                                        borderRadius: 8,
+                                        marginVertical: 10
+                                    }}
+                                    visible={isOpen}
+                                    onDismiss={() => setOpen(false)}
+                                    anchor={<Button onPress={() => setOpen(true)}>Click Here To Select User Type</Button>}>
+                                    <Menu.Item onPress={() => onPressItemHandler("Recruiter")} title="Recruiter" />
+                                    <Divider />
+                                    <Menu.Item onPress={() => onPressItemHandler("Candidate")} title="Candidate" />
+                                </Menu>
+                                <TextInput
+                                label="User Type"
+                                value={userType}
+                                onChangeText={userType => setUserType(userType)}
+                                style={{
+                                    width: 334,
+                                    fontSize: 18,
+                                    borderRadius: 8,
+                                    marginVertical: 10
+                                }}
+                                />
                                 <TextInput
                                     label="Name"
                                     value={name}
@@ -100,17 +131,6 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                     label="Project"
                                     value={project}
                                     onChangeText={project => setProject(project)}
-                                    style={{
-                                        width: 334,
-                                        fontSize: 18,
-                                        borderRadius: 8,
-                                        marginVertical: 10
-                                    }}
-                                    />
-                                <TextInput
-                                    label="User Type"
-                                    value={userType}
-                                    onChangeText={userType => setUserType(userType)}
                                     style={{
                                         width: 334,
                                         fontSize: 18,
