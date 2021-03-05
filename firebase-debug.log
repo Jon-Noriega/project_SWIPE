@@ -1,0 +1,39 @@
+[debug] [2021-03-04T23:48:01.411Z] ----------------------------------------------------------------------
+[debug] [2021-03-04T23:48:01.414Z] Command:       /Users/ocean/.nvm/versions/node/v14.10.1/bin/node /Users/ocean/.nvm/versions/node/v14.10.1/bin/firebase init
+[debug] [2021-03-04T23:48:01.414Z] CLI Version:   9.5.0
+[debug] [2021-03-04T23:48:01.414Z] Platform:      darwin
+[debug] [2021-03-04T23:48:01.414Z] Node Version:  v14.10.1
+[debug] [2021-03-04T23:48:01.416Z] Time:          Thu Mar 04 2021 16:48:01 GMT-0700 (Mountain Standard Time)
+[debug] [2021-03-04T23:48:01.416Z] ----------------------------------------------------------------------
+[debug] [2021-03-04T23:48:01.416Z] 
+[debug] [2021-03-04T23:48:01.423Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-04T23:48:01.423Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/ocean/Documents/Learn/5mod/1. Capstone/freeAGENT
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-03-04T23:50:24.804Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-03-04T23:50:25.039Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2021-03-04T23:50:25.039Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project freeagent-io (freeAGENT-io) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

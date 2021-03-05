@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Text } from 'react-native'
 import { Modal, Portal, TextInput, HelperText, Button, Menu, Divider, Caption, Provider } from "react-native-paper"
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { SimpleImagePicker } from "../../components/index"
 
 const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
 
@@ -105,7 +106,8 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                         marginVertical: 10
                                     }}
                                     />
-                                <TextInput  
+                                    
+                                {/* <TextInput  
                                     label="Photo"
                                     value={photo}
                                     onChangeText={photo => setPhoto(photo)}
@@ -115,7 +117,9 @@ const SignUpForm = ({ signUp, alerts, getUsers, navigation }) => {
                                         borderRadius: 8,
                                         marginVertical: 10
                                     }}
-                                    />
+                                    /> */}
+                                <SimpleImagePicker />
+
                                 <TextInput
                                     label="Description"
                                     value={description}
